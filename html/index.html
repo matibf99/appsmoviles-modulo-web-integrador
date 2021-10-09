@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/712575d4a5.js" 
+    crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
     <title>Document</title>
 </head>
 <body>
     <!-- HEADER -->
-    <header class="navbar container">
-        <div class="navbar-content">
-            <!-- TITULO -->
-            <div class="navbar-text">
-                <a href="#" class="navbar-title">myprodiet</a>
-            </div>
-        </div>
+    <header class="header">
+        <nav class="navbar-conteiner">
+            <a href="#">
+                <img class="logo" src="/img/whitelogo.png" alt="logo">
+            </a>
+            <ul class="enlaces-menu">
+                <li><a href="/html/acercade.html">ACERCA DE</a></li>
+                <li><a href="#">CALORIAS</a></li>
+                <li><a href="#">DIETAS</a></li>
+                <li><a href="#">ALIMENTOS</a></li>
+            </ul>
+            <button class="boton-hum" type="button">
+                <span class="br-1"></span>
+                <span class="br-2"></span>
+                <span class="br-3"></span>
+            </button>
+        </nav>
     </header>
 
     <!-- BODY -->
     <div class="container container-body">
         <!-- ASIDE -->
-        <nav class="aside">
-            <ul class="category-selector">
-                <li><a href="#">ACERCA DE</a></li>
-                <li><a href="#">CALORIAS</a></li>
-                <li><a href="#">PLANES NUTRICIONALES</a></li>
-                <li><a href="#">ALIMENTOS</a></li>
-                <li><a href="#">EJERCICIOS</a></li>
-            </ul>
-        </nav>
+        <div>
 
+        </div>
         <!-- CONTENT-->
         <div>
-            CONTENT
+            <div class="input-buscar-container">
+                <div class="eslogan">
+                    <p>
+                        Tu salud física
+                    </p>
+                    <p>
+                        empieza con lo que
+                    </p>
+                    <p>
+                        comes.
+                    </p>
+                </div>
+                <div class="frase">
+                    <p>
+                        Asume el control de tus objetivos. Registra las 
+                    </p>
+                    <p>
+                        calorías, y el desglose de los ingredientes
+                    </p>
+                    <p>
+                        con MyProDiet.
+                    </p>
+                </div>
+                <div class="buscar">
+                    <input type="text" placeholder="buscar" required>
+                    <div class="btn-buscar">
+                        <i class="fas fa-search icon"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -42,11 +79,10 @@
         <div class="container">
             <p>Matías Gabriel Busum Fradera, Facundo Ariel Chazarreta.</p>
             <p>UNAJ. Aplicaciones móviles 2C 2021.</p>
-            <br />
-            <p>PD © 2021 myprodiet. Todos los derechos reservados.</p>
+            <p>GM © 2021 GamesMaster. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    
+    <script src="/js/main.js"></script>
 </body>
 </html>
