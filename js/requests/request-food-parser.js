@@ -1,53 +1,64 @@
-import { APP_ID_FOOD, APP_ID_FOOD, APP_ID_RECIPE, APP_KEY_RECIPE } from "../constants/key";
+import { APP_ID_FOOD, APP_KEY_FOOD } from "../constants/key.js";
 
-const food_parser_url = "https://api.edamam.com/api/food-database/v2/parser?";
+/**
+ * Docs food API: https://developer.edamam.com/food-database-api-docs
+ */
 
-const FIELD_Q = "q";
+const FOOD_PARSER_URL = "https://api.edamam.com/api/food-database/v2/parser?";
+
+const FIELD_INGR = "ingr";
 const FIELD_APP_ID = "app_id";
 const FIELD_APP_KEY = "app_key";
 const FIELD_TYPE = "type";
-const FIELD_CALORIES = "";
+const FIELD_CALORIES = "calories";
 
-export default class RequestFoodParser {
+class RequestFoodParser {
 
     constructor() {
-        this.q = FIELD_Q;
+        this.ingr = null;
         this.calories = null;
     }
 
-    setCalories(min,max) {
-        this.calories = [min, max]
+    setCalories(min, max) {
+        this.calories = `${min}-${max}`;
+        return this;
     }
 
     setQuery(q) {
-        this.q = q;
+        this.ingr = q;
+        return this;
     }
 
-    request() {
-        let url = "https://api.edamam.com/api/food-database/v2/parser?";
+    async get() {
+        const params = new URLSearchParams();
 
-        const headers = new Headers();
+        params.append(FIELD_TYPE, "public");
+        params.append(FIELD_APP_ID, APP_ID_FOOD);
+        params.append(FIELD_APP_KEY, APP_KEY_FOOD);
 
-        headers.append(FIELD_TYPE, "public");
-        headers.append(FIELD_APP_ID, APP_ID_RECIPE);
-        headers.append(FIELD_APP_KEY, APP_KEY_RECIPE);
-
-        if (this.q != null)
-            headers.append(FIELD_Q, this.q);
+        if (this.ingr != null)
+            params.append(FIELD_INGR, this.ingr);
 
         if (this.calories != null)
-            headers.append(FIELD_CALORIES, this.calories);
+            params.append(FIELD_CALORIES, this.calories);
 
-        url += headers.toString();
+        let url = FOOD_PARSER_URL + params.toString();
+        console.log(url);
 
-        const response = await fetch(food_parser_url, {
-            method: 'GET',
-            mode: 'no-cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            redirect: 'follow',
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "*/*",
+                "Access-Control-Allow-Origin" : "*",
+                "Accept-Encoding": "gzip, deflate, br"
+            },
+            mode: "cors",
+            cache: "default"
         });
 
+        console.log(response);
         return response.json();
     }
 }
+
+export { RequestFoodParser };
