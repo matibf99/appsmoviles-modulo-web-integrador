@@ -100,8 +100,6 @@ class RequestRecipeSearch {
         params.append(FIELD_TYPE, "public");
         params.append(FIELD_APP_ID, APP_ID_RECIPE);
 
-        console.log(this.ingr);
-
         if (this._cont != null)
             params.append(FIELD_CONT, this._cont);
 

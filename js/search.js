@@ -49,10 +49,12 @@ const restoreFiltersFromParams = (urlParams) => {
     }
 }
 
-const getRecipes = async (query) => {
+const loadResults = async () => {
+    loading = true;
+
     const newUrlParams = new URLSearchParams();
 
-    newUrlParams.append("q", query);
+    newUrlParams.append("q", urlParams.get("q"));
 
     if (caloriesMin.val())
         newUrlParams.append("calMin", caloriesMin.val());
@@ -67,7 +69,7 @@ const getRecipes = async (query) => {
         newUrlParams.append("ingrMax", ingredientsMax.val());
 
     const request = new RequestRecipeSearch()
-        .setQuery(query)
+        .setQuery(urlParams.get("q"))
         .setNumberIngredients(ingredientsMin.val(), ingredientsMax.val())
         .setCalories(caloriesMin.val(), caloriesMax.val());
 
@@ -97,12 +99,11 @@ const getRecipes = async (query) => {
     const refresh_url = window.location.protocol + "//" + window.location.host + window.location.pathname + `?${newUrlParams.toString()}`;
     history.pushState(null, null, refresh_url);
 
-    return await request.get();
-}
-
-const loadResults = async () => {
-    const response = await getRecipes(urlParams.get("q"));
+    const response = await request.get();
     nextPage = response._links.next.href;
+
+    searchQuery.text(`"${urlParams.get("q")}"`);
+    searchNumResults.text(`${response.count} results`)
 
     const views = getViews(response.hits);
 
@@ -116,9 +117,9 @@ const loadResults = async () => {
 const loadMore = async () => {
     loading = true;
 
-    const string = nextPage.substring(nextPage.indexOf("?")+1);
-    const urlParams = new URLSearchParams(string);
-    console.log(string);
+    const paramsString = nextPage.substring(nextPage.indexOf("?")+1);
+    const urlParams = new URLSearchParams(paramsString);
+    console.log(paramsString);
 
     const res = new RequestRecipeSearch()
         .setQuery(urlParams.get("q"))
@@ -134,6 +135,10 @@ const loadMore = async () => {
     });
 
     loading = false;
+}
+
+const resetResults = () => {
+    searchContent.empty();
 }
 
 /* Create a constant for each filter */
@@ -158,8 +163,28 @@ const mealTypeFilters = $("#meal-type").find("input");
 // Apply filters button
 const button = $("#btn-apply-filters");
 button.on("click", (e) => {
-    getRecipes(urlParams.get("q"));
+    resetResults();
+    loadResults();
 });
+
+// Filters list
+const filtersList = $(".search-filters-list");
+
+// Show more filters (mobile)
+const btnShowFilters = $("#show-more-filters");
+btnShowFilters.on("click", () => {
+    filtersList.toggle();
+
+    if (filtersList.is(":visible")) {
+        btnShowFilters.text("Hide filters");
+    } else {
+        btnShowFilters.text("Show filters");
+    }
+})
+
+// Search result texts
+const searchQuery = $(".search-query");
+const searchNumResults = $(".search-n-results");
 
 // Search content
 const searchContent = $(".search-content");
