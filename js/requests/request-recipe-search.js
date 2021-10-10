@@ -17,6 +17,7 @@ const FIELD_CUISINE_TYPE = "cuisineType";
 const FIELD_MEAL_TYPE = "mealType";
 const FIELD_DISH_TYPE = "dishType";
 const FIELD_CALORIES = "calories";
+const FIELD_CONT = "_cont";
 
 class RequestRecipeSearch {
     constructor() {
@@ -28,6 +29,7 @@ class RequestRecipeSearch {
         this.mealType = [];
         this.dishType = [];
         this.calories = null;
+        this._cont = null;
     }
 
     setQuery(q) {
@@ -86,14 +88,22 @@ class RequestRecipeSearch {
         return this;
     }
 
+    setCont(_cont) {
+        this._cont = _cont;
+        return this;
+    }
+
     async get() {
         const params = new URLSearchParams();
 
+        params.append(FIELD_APP_KEY, APP_KEY_RECIPE);
         params.append(FIELD_TYPE, "public");
         params.append(FIELD_APP_ID, APP_ID_RECIPE);
-        params.append(FIELD_APP_KEY, APP_KEY_RECIPE);
 
         console.log(this.ingr);
+
+        if (this._cont != null)
+            params.append(FIELD_CONT, this._cont);
 
         if (this.q != null)
             params.append(FIELD_Q, this.q);

@@ -1,4 +1,10 @@
 import { RequestRecipeSearch } from "./requests/request-recipe-search.js";
+import { getViews } from "./view/search-item.js";
+
+/* Important variables */
+
+let loading = true;
+let nextPage = null;
 
 /* Functions */
 
@@ -88,11 +94,46 @@ const getRecipes = async (query) => {
         }
     });
 
-    let refresh_url = window.location.protocol + "//" + window.location.host + window.location.pathname + `?${newUrlParams.toString()}`;
+    const refresh_url = window.location.protocol + "//" + window.location.host + window.location.pathname + `?${newUrlParams.toString()}`;
     history.pushState(null, null, refresh_url);
 
-    const response = await request.get();
-    console.log(response)
+    return await request.get();
+}
+
+const loadResults = async () => {
+    const response = await getRecipes(urlParams.get("q"));
+    nextPage = response._links.next.href;
+
+    const views = getViews(response.hits);
+
+    views.forEach(element => {
+        searchContent.append(element);
+    });
+
+    loading = false;
+}
+
+const loadMore = async () => {
+    loading = true;
+
+    const string = nextPage.substring(nextPage.indexOf("?")+1);
+    const urlParams = new URLSearchParams(string);
+    console.log(string);
+
+    const res = new RequestRecipeSearch()
+        .setQuery(urlParams.get("q"))
+        .setCont(urlParams.get("_cont"));
+
+    const response = await res.get();
+    nextPage = response._links.next.href;
+
+    const views = getViews(response.hits);
+
+    views.forEach(element => {
+        searchContent.append(element);
+    });
+
+    loading = false;
 }
 
 /* Create a constant for each filter */
@@ -120,9 +161,26 @@ button.on("click", (e) => {
     getRecipes(urlParams.get("q"));
 });
 
+// Search content
+const searchContent = $(".search-content");
+
 /* Get URLSearchParameters */
+
 const urlParams = new URLSearchParams(window.location.search);
-console.log(urlParams.toString());
 restoreFiltersFromParams(urlParams);
 
-await getRecipes(urlParams.get("q"));
+/* Load results */
+
+await loadResults();
+
+/* Add more elements on scroll */
+
+$(window).on("scroll", async () => {
+    if(!loading && $(window).scrollTop() >= searchContent.offset().top + searchContent.outerHeight() - window.innerHeight) {
+        console.log('end reached');
+
+        if (nextPage != null || nextPage.length > 0) {
+            await loadMore();
+        }
+    }
+});

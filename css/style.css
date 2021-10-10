@@ -47,7 +47,8 @@ body {
     padding: 0;
     margin: 0;
     line-height: 1.6;
-    background: url('/img/healthy-lunch-go-packed-lunch-box.jpg') no-repeat center fixed;
+    background-color: var(--lighter-grey);
+    /*background: url('/img/healthy-lunch-go-packed-lunch-box.jpg') no-repeat center fixed;*/
     background-size: cover;
 }
 
@@ -265,7 +266,7 @@ body {
 
 .search-filters {
     width: 20rem;
-    height: auto;
+    height: max-content;
     padding: 1rem;
     background-color: var(--white);
     border-radius: 0.2rem;
@@ -335,18 +336,74 @@ input[type="checkbox"] {
 }
 
 .search-content {
+    height: max-content;
     width: 70%;
     margin-left: 1rem;
-    padding: 1rem;
-    background-color: var(--main-bg);
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.search-content * {
+.card-recipe {
+    display: flex;
+    flex-direction: column;
     width: auto;
-    border: var(--darker-grey) solid 1px;
+    background-color: var(--white);
+    border: var(--light-grey) 1px solid;
+    border-radius: 0.2rem;
+    transition: border 0.3s;
+    cursor: pointer;
+}
+
+.card-recipe:hover {
+    border: var(--grey) 1px solid;
+}
+
+.card-recipe-image {
+    overflow: hidden;
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+    min-width: auto;
+    min-height: auto;
+}
+
+.card-recipe-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    flex-grow: 1;
+}
+
+.card-recipe-title {
+    padding: 0.2rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--black);
+    line-height: 1.4rem;
+}
+
+.card-recipe-label {
+    padding: 0 0.3rem;
+    width: max-content;
+    background-color: var(--darker-blue);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.card-recipe-subtitle {
+    flex-grow: 1;
+    width: max-content;
+    color: var(--darker-grey);
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.card-recipe-info {
+    padding-top: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .btn {
@@ -364,6 +421,14 @@ input[type="checkbox"] {
 
 .btn:hover, .btn:active {
     background-color: var(--blue-light);
+}
+
+.text-red {
+    color: red;
+}
+
+.text-bold {
+    font-weight: bold;
 }
 
 /*DISPOSITIVOS MOVILES */
