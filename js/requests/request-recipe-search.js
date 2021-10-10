@@ -36,9 +36,11 @@ class RequestRecipeSearch {
     }
 
     setNumberIngredients(min, max) {
-        if (min == 0)
+        if(min == null || min == 0 && max == null || max == 0)
+            this.ingr = null;
+        else if (min == null || min == 0)
             this.ingr = `${max}`;
-        else if (max == 0)
+        else if (max == null || max == 0)
             this.ingr = `${min}%2B`;
         else
             this.ingr = `${min}-${max}`;
@@ -72,7 +74,15 @@ class RequestRecipeSearch {
     }
 
     setCalories(min, max) {
-        this.calories = `${min}-${max}`;
+        if(min == null || min == 0 && max == null || max == 0)
+            this.calories = null;
+        else if (min == null || min == 0)
+            this.calories = `${max}`;
+        else if (max == null || max == 0)
+            this.calories = `${min}%2B`;
+        else
+            this.calories = `${min}-${max}`;
+
         return this;
     }
 
@@ -82,6 +92,8 @@ class RequestRecipeSearch {
         params.append(FIELD_TYPE, "public");
         params.append(FIELD_APP_ID, APP_ID_RECIPE);
         params.append(FIELD_APP_KEY, APP_KEY_RECIPE);
+
+        console.log(this.ingr);
 
         if (this.q != null)
             params.append(FIELD_Q, this.q);

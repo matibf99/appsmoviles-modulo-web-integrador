@@ -336,7 +336,7 @@ input[type="checkbox"] {
 
 .search-content {
     width: 70%;
-    margin: 0 1rem;
+    margin-left: 1rem;
     padding: 1rem;
     background-color: var(--main-bg);
     display: grid;

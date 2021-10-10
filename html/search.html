@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
     <script src="https://kit.fontawesome.com/712575d4a5.js"
     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
@@ -45,7 +50,7 @@
             </div>
 
             <div class="search-filters-list">
-                <div class="search-filter">
+                <div class="search-filter" id="amount-ingredients">
                     <h4 class="filter-title">Amount of ingredients</h4>
                     <div class="filter-min-max">
                         <input type="text" placeholder="min" class="filter-input" id="ingr-min">
@@ -53,7 +58,7 @@
                         <input type="text" placeholder="max" class="filter-input" id="ingr-max">
                     </div>
                 </div>
-                <div class="search-filter">
+                <div class="search-filter" id="calories">
                     <h4 class="filter-title">Calories</h4>
                     <div class="filter-min-max">
                         <input type="text" placeholder="min" class="filter-input" id="cal-min">
@@ -61,7 +66,7 @@
                         <input type="text" placeholder="max" class="filter-input" id="cal-max">
                     </div>
                 </div>
-                <div class="search-filter">
+                <div class="search-filter" id="diet">
                     <h4 class="filter-title">Diet</h4>
                     <div class="filter-checkbox">
                         <div>
@@ -90,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="search-filter">
+                <div class="search-filter" id="cuisine-type">
                     <h4 class="filter-title">Cuisine type</h4>
                     <div class="filter-checkbox">
                         <div>
@@ -153,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="search-filter">
+                <div class="search-filter" id="meal-type">
                     <h4 class="filter-title">Meal type</h4>
                     <div class="filter-checkbox">
                         <div>
@@ -187,7 +192,7 @@
                     </div>
                 </div>
 
-                <button class="btn">APPLY FILTERS</button>
+                <button class="btn" id="btn-apply-filters">APPLY FILTERS</button>
             </div>
         </aside>
         <!-- CONTENT-->
@@ -204,6 +209,6 @@
         </div>
     </footer>
 
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/search.js"></script>
 </body>
 </html>
