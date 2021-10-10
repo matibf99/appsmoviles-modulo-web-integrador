@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/712575d4a5.js"
+    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <title>Prodiet</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar-conteiner">
+            <a href="./index.html">
+                <img class="logo" src="/img/whitelogo.png" alt="logo">
+            </a>
+            <ul class="enlaces-menu">
+                <li><a href="/html/acercade.html">ACERCA DE</a></li>
+                <li><a href="#">CALORIAS</a></li>
+                <li><a href="#">DIETAS</a></li>
+                <li><a href="#">ALIMENTOS</a></li>
+            </ul>
+            <button class="boton-hum" type="button">
+                <span class="br-1"></span>
+                <span class="br-2"></span>
+                <span class="br-3"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- BODY -->
+    <div class="container container-search">
+        <!-- ASIDE -->
+        <aside class="search-filters">
+            <h4 class="searching-for">Searching results for:</h4>
+
+            <div class="search-results">
+                <h3 class="search-query">"Hamburger"</h3>
+                <h4 class="search-n-results">290 results</h4>
+            </div>
+
+            <div class="search-filters-list">
+                <div class="search-filter">
+                    <h4 class="filter-title">Amount of ingredients</h4>
+                    <div class="filter-min-max">
+                        <input type="text" placeholder="min" class="filter-input" id="ingr-min">
+                        ‒
+                        <input type="text" placeholder="max" class="filter-input" id="ingr-max">
+                    </div>
+                </div>
+                <div class="search-filter">
+                    <h4 class="filter-title">Calories</h4>
+                    <div class="filter-min-max">
+                        <input type="text" placeholder="min" class="filter-input" id="cal-min">
+                        ‒
+                        <input type="text" placeholder="max" class="filter-input" id="cal-max">
+                    </div>
+                </div>
+                <div class="search-filter">
+                    <h4 class="filter-title">Diet</h4>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="balanced" id="balanced">
+                            <label for="balanced">Balanced</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="high-fiber" id="high-fiber">
+                            <label for="high-fiber">High fiber</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="high-protein" id="high-protein">
+                            <label for="high-protein">High protein</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="low-carb" id="low-carb">
+                            <label for="low-carb">Low carb</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="low-fat" id="low-fat">
+                            <label for="low-fat">Low fat</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="low-sodium" id="low-sodium">
+                            <label for="low-sodium">Low sodium</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-filter">
+                    <h4 class="filter-title">Cuisine type</h4>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="american" id="american">
+                            <label for="american">American</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="asian" id="asian">
+                            <label for="asian">Asian</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="british" id="british">
+                            <label for="british">British</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="caribbean" id="caribbean">
+                            <label for="caribbean">Caribbean</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="central-europe" id="central-europe">
+                            <label for="central-europe">Central Europe</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="chinese" id="chinese">
+                            <label for="chinese">Central Europe</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="french" id="french">
+                            <label for="french">French</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="indian" id="indian">
+                            <label for="indian">Indian</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="italian" id="italian">
+                            <label for="italian">Italian</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="japanese" id="japanese">
+                            <label for="japanese">Japanese</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-filter">
+                    <h4 class="filter-title">Meal type</h4>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="breakfast" id="breakfast">
+                            <label for="breakfast">Breakfast</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="dinner" id="dinner">
+                            <label for="dinner">Dinner</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="lunch" id="lunch">
+                            <label for="lunch">Lunch</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="snack" id="snack">
+                            <label for="snack">Snack</label>
+                        </div>
+                    </div>
+                    <div class="filter-checkbox">
+                        <div>
+                            <input type="checkbox" name="teatime" id="teatime">
+                            <label for="teatime">Teatime</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn">APPLY FILTERS</button>
+            </div>
+        </aside>
+        <!-- CONTENT-->
+        <section class="search-content">
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Matías Gabriel Busum Fradera, Facundo Ariel Chazarreta.</p>
+            <p>UNAJ. Aplicaciones móviles 2C 2021.</p>
+            <p>GM © 2021 GamesMaster. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
