@@ -39,7 +39,7 @@ class RequestRecipeSearch {
         if (min == 0)
             this.ingr = `${max}`;
         else if (max == 0)
-            this.ingr = `${min}+`;
+            this.ingr = `${min}%2B`;
         else
             this.ingr = `${min}-${max}`;
 
