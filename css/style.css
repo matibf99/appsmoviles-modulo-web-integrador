@@ -427,7 +427,7 @@ input[type="checkbox"] {
 
 .card-recipe-title {
     padding: 0.2rem 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--black);
     line-height: 1.5rem;
@@ -452,8 +452,18 @@ input[type="checkbox"] {
 }
 
 .card-recipe-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding-top: 0.5rem;
     font-size: 0.9rem;
+}
+
+.card-recipe-price {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
 }
 
 .card-recipe-cart {
@@ -617,6 +627,14 @@ input[type="checkbox"] {
     left: 1.5rem;
     text-align: left;
 }
+
+.card-recipe-summary-price {
+    padding-top: 0.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 1.9rem;
+}
+
 .card-recipe-summary-share:hover {
     background-color: var(--blue-light);
 }
@@ -794,10 +812,11 @@ input[type="checkbox"] {
     .boton-hum:hover {
         transform: rotate(360deg);
     }
+
     .navbar-conteiner {
         flex-direction: column;
         align-items: flex-start;
-        padding:25px 0;
+        padding: 25px 0;
     }
 
     .enlaces-menu {

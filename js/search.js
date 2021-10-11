@@ -1,5 +1,6 @@
 import { RequestRecipeSearch } from "./requests/request-recipe-search.js";
 import { getViews } from "./view/search-item.js";
+import { addRecipeToCart, getCart } from "./utils/storage-cart.js";
 
 /* Important variables */
 
@@ -164,8 +165,29 @@ const initCartButtons = () => {
     });
 
     btnsAddToCart.on("click", (e) => {
-        const quantityText = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity");
-        console.log(quantityText.text());
+        const quantity = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity").text();
+        const elemRecipe = $(e.target).closest(".card-recipe");
+
+        const recipeId = elemRecipe.attr("recipe-id");
+        const title = elemRecipe.find(".card-recipe-title").text();
+        const cuisine = elemRecipe.find(".card-recipe-label").text();
+        const mealType = elemRecipe.find(".card-recipe-subtitle").text();
+        const image = elemRecipe.find(".card-recipe-image").attr("src");
+        const price = parseFloat(elemRecipe.find(".card-recipe-price").text().replace("$", ""));
+
+        const recipe = {
+            recipeId: recipeId,
+            title: title,
+            cuisine: cuisine,
+            mealType: mealType,
+            image: image,
+            price: price
+        };
+
+        console.log(recipe);
+
+        addRecipeToCart(quantity, recipe);
+        console.log(getCart());
     });
 }
 

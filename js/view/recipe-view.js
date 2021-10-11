@@ -1,3 +1,5 @@
+import { calculatePrice } from "../utils/recipe-utils.js";
+
 const arrayToString = (array) => {
     let s = "";
 
@@ -41,6 +43,7 @@ const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIng
         <div class="card-recipe-summary-info">
             <h3 class="card-recipe-summary-label">${cuisine}</h3>
             <h1 class="card-recipe-summary-title">${title}</h1>
+            <h2 class="card-recipe-summary-price">$${calculatePrice(calories)}</h2>
         </div>
         <div class="card-recipe-summary-cart">
             <div class="card-recipe-summary-cart-quantity">
@@ -54,7 +57,7 @@ const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIng
             </button>
         </div>
         <div class="card-recipe-summary-extra">
-            <p><span class="text-bold">Meal type:</span> <span>${mealType}</span></p>
+            <p><span class="text-bold">Meal type:</span> <span id="meal-type">${mealType}</span></p>
             <p><span class="text-bold">Dish type:</span> <span>${dishType}</span></p>
             <p><span class="text-bold">Calories:</span> <span>${calories}</span></p>
             <p><span class="text-bold">Ingredients:</span> <span>${numberIngredients}</span></p>
@@ -71,7 +74,7 @@ const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIng
         const ingredientCard = /*html*/`
             <article class="recipe-ingredient">
                 <div class="recipe-ingredient-quantity">
-                    <h1 class="recipe-ingredient-quantity-count">${element.quantity}</h1>
+                    <h1 class="recipe-ingredient-quantity-count">${parseFloat(element.quantity.toFixed(2))}</h1>
                     <h3 class="recipe-ingredient-quantity-unit">${element.measure}</h3>
                 </div>
                 <img src="${element.image}" alt="" class="recipe-ingredient-img">
@@ -107,13 +110,13 @@ const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIng
     const html = /*html*/`
         ${summaryCard}
         <div class="container-recipe-data">
-            <section class="card-recipe-nutrition">
-                <h2 class="recipe-section-title">Nutrients</h2>
-                ${htmlArrayToString(nutrientCards)}
-            </section>
             <section class="card-recipe-ingredients">
                 <h2 class="recipe-section-title">Ingredients</h2>
                 ${htmlArrayToString(ingredientCards)}
+            </section>
+            <section class="card-recipe-nutrition">
+                <h2 class="recipe-section-title">Nutrients</h2>
+                ${htmlArrayToString(nutrientCards)}
             </section>
         </div>
     `;
@@ -135,8 +138,7 @@ const renderRecipe = (recipe) => {
 
     let mealType = recipe.mealType;
 
-    let calories = recipe.calories.toString();
-    calories = calories.substring(0, calories.lastIndexOf("."));
+    const calories = recipe.calories.toFixed(0);
 
     const dishType = recipe.dishType;
     const dietLabels = recipe.dietLabels;
