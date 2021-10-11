@@ -1,4 +1,4 @@
-const getView = (image, title, cuisine, mealType, numIngredients, calories, totalTime) => {
+const getView = (recipeId, image, title, cuisine, mealType, numIngredients, calories, totalTime) => {
     const html = /*html*/`
     <article class="card-recipe">
         <div class="card-recipe-time">
@@ -7,16 +7,23 @@ const getView = (image, title, cuisine, mealType, numIngredients, calories, tota
             </svg>
             <span>${totalTime} minutes</span>
         </div>
+        <a href="/html/share.html?id=${recipeId}&title=${title}" class="card-recipe-share">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" />
+            </svg>
+        </a>
         <img src="${image}" alt="" class="card-recipe-image">
-        <div class="card-recipe-text">
-            <h6 class="card-recipe-label">${cuisine}</h6>
-            <h2 class="card-recipe-title">${title}</h2>
-            <h6 class="card-recipe-subtitle">${mealType}</h6>
-            <div class="card-recipe-info">
-                <p><span class="text-bold">${numIngredients}</span> ingredients</p>
-                <p><span class="text-red text-bold">${calories}</span> calories</p>
+        <a href="/html/recipe.html?id=${recipeId}" class="card-recipe-link">
+            <div class="card-recipe-text">
+                <h6 class="card-recipe-label">${cuisine}</h6>
+                <h2 class="card-recipe-title">${title}</h2>
+                <h6 class="card-recipe-subtitle">${mealType}</h6>
+                <div class="card-recipe-info">
+                    <p><span class="text-bold">${numIngredients}</span> ingredients</p>
+                    <p><span class="text-red text-bold">${calories}</span> calories</p>
+                </div>
             </div>
-        </div>
+        </a>
     </article>`;
 
     return html;
@@ -27,6 +34,9 @@ const getViews = (items) => {
 
     items.forEach(item => {
         const recipe = item.recipe;
+
+        let recipeId = recipe.uri;
+        recipeId = recipeId.substring(recipeId.indexOf("#")+1);
 
         const title = recipe.label;
         const image = recipe.image;
@@ -41,7 +51,7 @@ const getViews = (items) => {
 
         const totalTime = recipe.totalTime;
 
-        const view =  getView(image, title, cuisine, mealType, numIngredients, calories, totalTime);
+        const view =  getView(recipeId, image, title, cuisine, mealType, numIngredients, calories, totalTime);
         views.push(view);
     });
 
