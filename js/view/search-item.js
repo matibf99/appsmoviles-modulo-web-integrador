@@ -13,7 +13,7 @@ const getView = (image, title, cuisine, mealType, numIngredients, calories, tota
             <h2 class="card-recipe-title">${title}</h2>
             <h6 class="card-recipe-subtitle">${mealType}</h6>
             <div class="card-recipe-info">
-                <p><span class="text-blue text-bold">${numIngredients}</span> ingredients</p>
+                <p><span class="text-bold">${numIngredients}</span> ingredients</p>
                 <p><span class="text-red text-bold">${calories}</span> calories</p>
             </div>
         </div>

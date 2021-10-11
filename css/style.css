@@ -360,7 +360,7 @@ input[type="checkbox"] {
 }
 
 .card-recipe:hover {
-    border: var(--grey) 1px solid;
+    border: var(--darker-grey) 1px solid;
 }
 
 .card-recipe-image {
@@ -656,6 +656,17 @@ input[type="checkbox"] {
     font-size: 0.9rem;
 }
 
+.recipe-nutrition, .recipe-ingredient {
+    outline: var(--white);
+    transition: outline 0.5s;
+    border-left: var(--darker-blue) 0.35rem solid;
+    border-radius: 0.25rem;
+}
+
+.recipe-nutrition:hover, .recipe-ingredient:hover {
+    outline: var(--darker-grey) 1px solid;
+}
+
 /*DISPOSITIVOS MOVILES */
 
 @media (max-width:768px) {
@@ -751,10 +762,6 @@ input[type="checkbox"] {
         width: 20rem;
     }
 
-    .recipe-ingredient-img {
-        display: block;
-    }
-
     .container-recipe {
         padding: 2rem;
         flex-direction: row;
@@ -787,6 +794,10 @@ input[type="checkbox"] {
 
     .recipe-ingredient-quantity {
         width: 7rem;
+    }
+
+    .recipe-ingredient-img {
+        display: block;
     }
 }
 
