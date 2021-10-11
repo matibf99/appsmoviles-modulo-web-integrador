@@ -36,9 +36,7 @@ const getViews = (items) => {
 
         let mealType = recipe.mealType;
 
-        let calories = recipe.calories.toString();
-        calories = calories.substring(0, calories.lastIndexOf("."));
-
+        const calories = recipe.calories.toFixed(0);
         const numIngredients = recipe.ingredientLines.length;
 
         const totalTime = recipe.totalTime;
