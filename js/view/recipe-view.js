@@ -94,14 +94,15 @@ const getView = (image, title, cuisine, mealType, totalTime, numberIngredients, 
     const html = /*html*/`
         ${summaryCard}
         <div class="container-recipe-data">
-            <section class="card-recipe-ingredients">
-                <h2 class="recipe-section-title">Ingredients</h2>
-                ${htmlArrayToString(ingredientCards)}
-            </section>
             <section class="card-recipe-nutrition">
                 <h2 class="recipe-section-title">Nutrients</h2>
                 ${htmlArrayToString(nutrientCards)}
             </section>
+            <section class="card-recipe-ingredients">
+                <h2 class="recipe-section-title">Ingredients</h2>
+                ${htmlArrayToString(ingredientCards)}
+            </section>
+           
         </div>
     `;
 

@@ -471,8 +471,8 @@ input[type="checkbox"] {
 
 .container-recipe {
     display: flex;
-    flex-direction: row;
-    padding: 2rem 0;
+    flex-direction: column;
+    padding: 2rem;
     gap: 1.5rem;
 }
 
@@ -490,7 +490,7 @@ input[type="checkbox"] {
 
 .card-recipe-summary {
     position: relative;
-    width: 20rem;
+    width: 100%;
     height: max-content;
     padding: 1rem;
     display: flex;
@@ -557,8 +557,9 @@ input[type="checkbox"] {
 }
 
 .container-recipe-data {
+    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -578,7 +579,7 @@ input[type="checkbox"] {
 }
 
 .recipe-ingredient-quantity {
-    width: 7rem;
+    width: 6rem;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -603,6 +604,7 @@ input[type="checkbox"] {
 }
 
 .recipe-ingredient-img {
+    display: none;
     height: 4.5rem;
     width: 7rem;
     object-fit: cover;
@@ -631,9 +633,9 @@ input[type="checkbox"] {
 .recipe-ingredient-title {
     display: flex;
     text-align: left;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    line-height: 1.5rem;
+    line-height: 1.3rem;
     color: var(--black);
 }
 
@@ -744,6 +746,25 @@ input[type="checkbox"] {
     .container-search {
         padding: 3rem;
     }
+
+    .card-recipe-summary {
+        width: 20rem;
+    }
+
+    .recipe-ingredient-img {
+        display: block;
+    }
+
+    .container-recipe {
+        padding: 2rem;
+        flex-direction: row;
+    }
+
+    .recipe-ingredient-title {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        color: var(--black);
+    }
 }
 
 @media (min-width: 1024px) {
@@ -762,6 +783,10 @@ input[type="checkbox"] {
 
     .search-content {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .recipe-ingredient-quantity {
+        width: 7rem;
     }
 }
 
@@ -782,6 +807,10 @@ input[type="checkbox"] {
 
     .search-content {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .container-recipe-data {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
