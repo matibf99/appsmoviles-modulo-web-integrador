@@ -348,6 +348,7 @@ input[type="checkbox"] {
 }
 
 .card-recipe {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -371,6 +372,23 @@ input[type="checkbox"] {
     min-height: auto;
 }
 
+.card-recipe-time {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0.2rem;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.25rem;
+    text-align: right;
+}
+
 .card-recipe-text {
     flex-grow: 1;
     display: flex;
@@ -381,10 +399,10 @@ input[type="checkbox"] {
 
 .card-recipe-title {
     padding: 0.2rem 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--black);
-    line-height: 1.4rem;
+    line-height: 1.5rem;
 }
 
 .card-recipe-label {
@@ -392,7 +410,7 @@ input[type="checkbox"] {
     width: max-content;
     background-color: var(--darker-blue);
     color: var(--white);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 
@@ -400,8 +418,9 @@ input[type="checkbox"] {
     flex-grow: 1;
     width: max-content;
     color: var(--darker-grey);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: normal;
+    line-height: 1rem;
 }
 
 .card-recipe-info {
@@ -448,6 +467,191 @@ input[type="checkbox"] {
 
 .text-bold {
     font-weight: bold;
+}
+
+.container-recipe {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 0;
+    gap: 1.5rem;
+}
+
+.recipe-section-title {
+    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--black);
+}
+
+.card-recipe-common {
+    background-color: var(--white);
+    border-radius: 0.2rem;
+}
+
+.card-recipe-summary {
+    position: relative;
+    width: 20rem;
+    height: max-content;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-recipe-summary-img {
+    border-radius: 0.2rem;
+}
+
+.card-recipe-summary-info {
+    padding-top: 0.8rem;
+}
+
+.card-recipe-summary-label {
+    padding: 0 0.3rem;
+    width: max-content;
+    background-color: var(--darker-blue);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.card-recipe-summary-title {
+    padding: 0.6rem 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--black);
+    line-height: 1.6rem;
+}
+
+.card-recipe-summary-subtitle {
+    flex-grow: 1;
+    width: max-content;
+    color: var(--darker-grey);
+    font-size: 0.9rem;
+    font-weight: normal;
+    line-height: 1rem;
+}
+
+.card-recipe-summary-time {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0.2rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.25rem;
+    text-align: right;
+}
+
+.card-recipe-summary-extra {
+    font-size: 0.9rem;
+}
+
+.card-recipe-summary-extra * {
+    margin-top: 0.25rem;
+}
+
+.container-recipe-data {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.card-recipe-ingredients {
+    height: max-content;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.recipe-ingredient {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--white);
+    padding: 0.5rem;
+}
+
+.recipe-ingredient-quantity {
+    width: 7rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.recipe-ingredient-quantity-count {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    color: var(--black);
+}
+
+.recipe-ingredient-quantity-unit {
+    font-size: 1.1rem;
+    font-weight: normal;
+    line-height: 1.2rem;
+    color: var(--darker-grey);
+}
+
+.recipe-ingredient-img {
+    height: 4.5rem;
+    width: 7rem;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 0.2rem;
+    flex-shrink: 0;
+}
+
+.recipe-ingredient-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.recipe-ingredient-label {
+    padding: 0 0.3rem;
+    margin-bottom: 0.1rem;
+    width: max-content;
+    background-color: var(--darker-blue);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.recipe-ingredient-title {
+    display: flex;
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    color: var(--black);
+}
+
+.card-recipe-nutrition {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.recipe-nutrition {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0.1rem 0.5rem;
+    background-color: var(--white);
+}
+
+.recipe-nutrition p {
+    font-size: 0.9rem;
 }
 
 /*DISPOSITIVOS MOVILES */
