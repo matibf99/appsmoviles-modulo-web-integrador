@@ -24,6 +24,14 @@ const getView = (recipeId, image, title, cuisine, mealType, numIngredients, calo
                 </div>
             </div>
         </a>
+        <div class="card-recipe-cart">
+            <button class="btn-cart">
+                ADD TO CART
+            </button>
+            <button class="btn-cart-symbol btn-cart-minus">−</button>
+            <p class="card-recipe-cart-quantity">1<p>
+            <button class="btn-cart-symbol btn-cart-plus">+</button>
+        </div>
     </article>`;
 
     return html;

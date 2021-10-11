@@ -21,11 +21,16 @@ const htmlArrayToString = (array) => {
     return s;
 }
 
-const getView = (image, title, cuisine, mealType, totalTime, numberIngredients, dishType,
+const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIngredients, dishType,
     calories, dietLabels, healthLabels, cautions, ingredients, totalNutrients, totalNutrientsDaily) => {
 
     const summaryCard = /*html*/`
     <section class="card-recipe-common card-recipe-summary">
+        <a href="/html/share.html?id=${recipeId}&title=${title}" class="card-recipe-summary-share">
+            <svg style="width:32px;height:32px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" />
+            </svg>
+        </a>
         <div class="card-recipe-summary-time">
             <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
@@ -36,6 +41,17 @@ const getView = (image, title, cuisine, mealType, totalTime, numberIngredients, 
         <div class="card-recipe-summary-info">
             <h3 class="card-recipe-summary-label">${cuisine}</h3>
             <h1 class="card-recipe-summary-title">${title}</h1>
+        </div>
+        <div class="card-recipe-summary-cart">
+            <div class="card-recipe-summary-cart-quantity">
+                <span class="text-bold">Quantity: </span>
+                <button class="btn-cart-symbol btn-cart-minus">−</button>
+                    <p class="card-recipe-cart-quantity">1<p>
+                <button class="btn-cart-symbol btn-cart-plus">+</button>
+            </div>
+            <button class="btn-cart">
+                ADD TO CART
+            </button>
         </div>
         <div class="card-recipe-summary-extra">
             <p><span class="text-bold">Meal type:</span> <span>${mealType}</span></p>
@@ -74,9 +90,6 @@ const getView = (image, title, cuisine, mealType, totalTime, numberIngredients, 
     var totalNutrientsValues = $.map(totalNutrients, function(value, key) { return value });
     var totalNutrientsDailyValues = $.map(totalNutrientsDaily, function(value, key) { return value });
 
-    console.log(totalNutrientsValues);
-    console.log(totalNutrientsDailyValues);
-
     for (let i=0; i<totalNutrientsValues.length; i++) {
         const totalNutrient = totalNutrientsValues[i];
         const dailyNutrient = totalNutrientsDailyValues[i];
@@ -102,7 +115,6 @@ const getView = (image, title, cuisine, mealType, totalTime, numberIngredients, 
                 <h2 class="recipe-section-title">Ingredients</h2>
                 ${htmlArrayToString(ingredientCards)}
             </section>
-           
         </div>
     `;
 
@@ -110,7 +122,8 @@ const getView = (image, title, cuisine, mealType, totalTime, numberIngredients, 
 }
 
 const renderRecipe = (recipe) => {
-    console.log(recipe);
+    let recipeId = recipe.uri;
+    recipeId = recipeId.substring(recipeId.indexOf("#")+1);
 
     const title = recipe.label;
     const image = recipe.image;
@@ -136,10 +149,7 @@ const renderRecipe = (recipe) => {
     const totalNutrients = recipe.totalNutrients;
     const totalNutrientsDaily = recipe.totalDaily;
 
-    console.log(totalNutrients);
-    console.log(totalNutrientsDaily);
-
-    const html = getView(image, title, cuisine, mealType, totalTime,
+    const html = getView(recipeId, image, title, cuisine, mealType, totalTime,
         numIngredients, dishType, calories, dietLabels, healthLabels,
         cautions, ingredients, totalNutrients, totalNutrientsDaily);
 

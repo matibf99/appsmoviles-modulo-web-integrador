@@ -390,7 +390,6 @@ input[type="checkbox"] {
     top: 0.5rem;
     left: 0.5rem;
     text-align: left;
-    transition: background-color 0.3s;
 }
 
 .card-recipe-share:hover {
@@ -409,6 +408,7 @@ input[type="checkbox"] {
     font-size: 0.8rem;
     font-weight: bold;
     padding: 0.25rem;
+    transition: background-color 0.3s;
 }
 
 .card-recipe-link {
@@ -456,6 +456,15 @@ input[type="checkbox"] {
     font-size: 0.9rem;
 }
 
+.card-recipe-cart {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
     width: 100%;
     background-color: var(--darker-blue);
@@ -489,6 +498,41 @@ input[type="checkbox"] {
     color: var(--blue-light);
 }
 
+.btn-cart {
+    flex-grow: 1;
+    border-radius: 0.2rem;
+    padding: 0.7rem 0.1rem;
+    margin-right: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.btn-cart-symbol {
+    height: max-content;
+    border-radius: 0.2rem;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.btn-cart, .btn-cart-symbol {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--white);
+    background-color: var(--blue-light);
+    transition: background-color 0.5s;
+}
+
+.card-recipe-cart-quantity {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-cart:hover, .btn-cart-symbol:hover {
+    background-color: var(--darker-blue);
+}
+
 .text-red {
     color: red;
 }
@@ -498,6 +542,7 @@ input[type="checkbox"] {
 }
 
 .container-recipe {
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -563,17 +608,48 @@ input[type="checkbox"] {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+    text-align: right;
+}
+
+.card-recipe-summary-share {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    text-align: left;
+}
+.card-recipe-summary-share:hover {
+    background-color: var(--blue-light);
+}
+
+.card-recipe-summary-time, .card-recipe-summary-share {
+    position: absolute;
     width: max-content;
     display: flex;
     flex-direction: row;
-    gap: 0.2rem;
-    background-color: rgba(0, 0, 0, 0.4);
+    gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.2rem;
     color: white;
     font-size: 1rem;
     font-weight: bold;
     padding: 0.25rem;
-    text-align: right;
+    transition: background-color 0.5s;
+}
+
+.card-recipe-summary-cart {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.card-recipe-summary-cart-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .card-recipe-summary-extra {
@@ -759,13 +835,13 @@ input[type="checkbox"] {
     .search-content {
         padding: 0;
         margin-left: 1rem;
-        width: 70%;
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .search-filters {
+        flex-shrink: 0;
         position: relative;
-        width: 20rem;
+        width: 14rem;
         height: max-content;
         padding: 1rem;
         background-color: var(--white);
@@ -808,6 +884,10 @@ input[type="checkbox"] {
         align-items: flex-start;
         margin-left: 18rem;
         margin-top: 4rem;
+    }
+
+    .search-filters {
+        width: 18rem;
     }
 
     .search-content {
