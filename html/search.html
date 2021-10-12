@@ -19,23 +19,27 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
-        <nav class="navbar-conteiner">
-            <a href="./index.html">
-                <img class="logo" src="/img/whitelogo.png" alt="logo">
-            </a>
-            <ul class="enlaces-menu">
-                <li><a href="/html/acercade.html">ACERCA DE</a></li>
-                <li><a href="#">CALORIAS</a></li>
-                <li><a href="#">DIETAS</a></li>
-                <li><a href="#">ALIMENTOS</a></li>
-            </ul>
-            <button class="boton-hum" type="button">
-                <span class="br-1"></span>
-                <span class="br-2"></span>
-                <span class="br-3"></span>
-            </button>
-        </nav>
+    <header class="navbar">
+        <div class="flex-nav">
+            <div class="nav-header">
+                <a href="/html/index.html">
+                    <img class="logo" src="/img/whitelogo.png" alt="logo">
+                </a>
+                <button class="nav-toggle" id= "navToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="buscar-nav">
+                <input type="text" placeholder="Search, food and more..." required>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <ul>
+                    <li class="nav-link"><a href="#">FOOD</a></li>
+                    <li class="nav-link"><a href="#">DIET</a></li>
+                    <li class="nav-link"><a href="/html/acercade.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- BODY -->

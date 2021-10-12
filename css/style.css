@@ -152,7 +152,7 @@ a {
     align-items: center;
     justify-content: space-around;
     min-height: 8vh;
-    background: var(--green);
+    background: var(--blue-light);
 }
 
 .flex-nav {
