@@ -2,7 +2,7 @@ import { RequestRecipeSearch } from "./requests/request-recipe-search.js";
 import { getViews } from "./view/search-item.js";
 import { addRecipeToCart, getCart } from "./utils/storage-cart.js";
 
-/* Important variables */
+/* Variables */
 
 let loading = true;
 let nextPage = null;
@@ -183,7 +183,7 @@ const initCartButtons = () => {
             image: image,
             price: price
         };
-        
+
         addRecipeToCart(quantity, recipe);
         console.log(getCart());
     });
