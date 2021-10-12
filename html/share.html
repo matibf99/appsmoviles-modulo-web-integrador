@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous">
-    </script>
-    <script src="https://kit.fontawesome.com/712575d4a5.js"
+    <script src="https://kit.fontawesome.com/712575d4a5.js" 
     crossorigin="anonymous"></script>
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -20,7 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
-    <title>Prodiet</title>
+    <title>Document</title>
 </head>
 <body>
     <!-- HEADER -->
@@ -30,7 +25,6 @@
                 <a href="/html/index.html">
                     <img class="logo" src="/img/whitelogo.png" alt="logo">
                 </a>
-                
                 <button class="nav-toggle" id= "navToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -55,34 +49,32 @@
 
         </div>
         <!-- CONTENT-->
-        <div class="input-buscar-container">
-            <div class="eslogan">
-                <p>
-                    Your physical health
-                </p>
-                <p>
-                    starts with 
-                </p>
-                <p>
-                    what you eat.
-                </p>
-            </div>
-            <div class="frase">
-                <p>
-                    Take control of your goals. Record the 
-                </p>
-                <p>
-                    calories, and the breakdown of ingredients
-                </p>
-                <p>
-                    with MyProDiet.
-                </p>
-            </div>
-            <div class="buscar">
-                <input type="text" placeholder="buscar" required>
-                <div class="btn-buscar">
-                    <i class="fas fa-search icon"></i>
-                </div>
+        <div>
+            <div class="encuesta-content">
+                <form enctype="text/plain" id="share-form" action="mailto:chazita9@gmail.com">
+                
+                    <label for="nombre" class="encuesta-label">Title</label>
+                    <input type="text" id="nombre">
+
+                    <label for="nombre" class="encuesta-label">Hello message</label>
+                    <input type="text" id="hello-menssage" name="hello-message" value="Hello dear friend I want you to take a look at this food!!">
+                    
+                    <label for="mail-emisor" class="encuesta-label">Receiving email</label>
+                    <input type="email" id="email" name="email">
+                    <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format</label>
+
+                    <label for="mail-destino" class="encuesta-label">Sender email</label>
+                    <input type="mail" id="mail-sender">
+                    <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format.</label>
+
+                    <label for="comentario" class="encuesta-label">Comment</label>
+                    <input type="text" id="comentario" name="comentario">
+
+                    <button class="btn-text" type="button"  id="btn-restablecer"></button>
+                    <button class="btn-filled" type="button" id="btn-cancelar">CANCEL</button>
+                    <button class="btn-filled btn-filled-blue" type="submit" id="button-send" >SEND</button>
+                </form>
+                <a href="mailto:chazita9@gmail.com" id="eventSendMail">mail</a>
             </div>
         </div>
     </div>
@@ -95,7 +87,10 @@
             <p>GM © 2021 GamesMaster. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script type="module" src="/js/main.js"></script>
+    <script>
+        
+    </script>
+    <script src="/js/main.js"></script>
+    <script src="/js/share.js"></script>
 </body>
 </html>
