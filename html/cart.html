@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/712575d4a5.js"
+    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <title>Prodiet</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar-conteiner">
+            <a href="./index.html">
+                <img class="logo" src="/img/whitelogo.png" alt="logo">
+            </a>
+            <ul class="enlaces-menu">
+                <li><a href="/html/acercade.html">ACERCA DE</a></li>
+                <li><a href="#">CALORIAS</a></li>
+                <li><a href="#">DIETAS</a></li>
+                <li><a href="#">ALIMENTOS</a></li>
+            </ul>
+            <button class="boton-hum" type="button">
+                <span class="br-1"></span>
+                <span class="br-2"></span>
+                <span class="br-3"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- BODY -->
+    <div class="container container-cart">
+        <h1 class="cart-title">Shopping Cart</h1>
+        <div class="cart-headers">
+            <p>Product</p>
+            <p class="text-center">Quantity</p>
+            <p class="text-center">Price</p>
+            <p class="text-center cart-header-total">Total</p>
+        </div>
+        <section class="cart-products">
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Matías Gabriel Busum Fradera, Facundo Ariel Chazarreta.</p>
+            <p>UNAJ. Aplicaciones móviles 2C 2021.</p>
+            <p>GM © 2021 GamesMaster. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/cart.js"></script>
+</body>
+</html>
