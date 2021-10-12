@@ -25,9 +25,11 @@
     --darker-green:  rgb(5, 88, 2);
 }
 
-#mapid { height: 180px; }
+::-webkit-scrollbar {display: none;}
 
-
+#mapid { height: 180px; 
+        width: 420px ;
+        border-radius: 1rem;}
 
 html {
     font-size: 62.5%;
@@ -42,10 +44,17 @@ body {
     padding: 0;
     margin: 0;
     line-height: 1.6;
-    background: url('/img/healthy-lunch-go-packed-lunch-box.jpg') no-repeat center fixed;
-    background-size: cover;
+    background: var(--background-mobile)
 }
 
+a{
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: #f3f3f3;
+}
+
+/* Container */
 .container {
     width: 100%;
     margin: 0px auto;
@@ -55,23 +64,17 @@ body {
     min-height: 90vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20rem;
+    margin-left: 2rem;
     margin-top: 4rem;
 }
 
-.navbar-conteiner{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 8vh;
-    background-color: var(--blue-light);
+.logo { 
+    width: 200px;
+    height: 85px;
+    padding-left: 2rem;
 }
 
-.input-buscar-conteiner{
-    align-items: center;
-}
-
+/* Barra buscar*/
 .buscar {
     position: absolute;
     padding: 5px;
@@ -111,66 +114,95 @@ body {
     width: 300px;
 }
 
-.boton-hum{
-    display:none;
-    cursor: pointer;
-    border: none;
-    margin:0;
-    padding:0;
-    background-color: transparent;
+/* Footer */
+.container-footer {
+    width: 100%;
+    margin: 0px auto;
 }
 
-.boton-hum span{
-    display: block;
-    background-color: #f3f3f3;
-    height: 3px;
-    width: 28px;
-    margin: 10px auto;
-    border-radius: 2px;
+.footer {
+    margin-top: 6rem;
+    padding: 1rem 0;
+    background-color: var(--backgorund-footer);
+    color: var(--white);
+    text-align: center;
 }
 
-.logo{
-    width: 180px;
-    height: 85px;
+/* Navbar */
+.navbar{
+    align-items: center;
+    justify-content: space-around;
+    min-height: 8vh;
+    background: var(--green);
 }
 
-.enlaces-menu{
+.flex-nav {
     display: flex;
-    padding: 0;
+    flex-direction: column;
 }
 
-.enlaces-menu li{
-    padding: 0 40px;
-    list-style-type: none;
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.enlaces-menu li a{
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-    color: #f3f3f3;
+.nav-toggle {
+    padding-right: 20px;
+    border: transparent;
+    background: transparent;
+    color: white;
+    font-size: 1.5rem;
 }
 
-.enlaces-menu li:hover{
-    background-color: var(--darker-blue);
-    list-style-type: none;
+.nav-links {
+    height: 0;
+    overflow: hidden;
+}
+
+.nav-open {
+    height: 100vh;
+}
+
+.nav-link {
+    list-style: none;
+    margin: 20px 0;
+    border-bottom: 2px solid white;
+    width: 8rem;
+}
+
+.nav-link-buscar {
+    list-style: none;
+    width: 8rem;
+}
+
+.nav-link:hover{
+    border-bottom: transparent;
     transition: 0.3s;
 }
 
-.category-selector li a{
-    padding-top: 7px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    transition: all 0.3s ease 0s;
-    text-decoration: none;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: 15px;
+.buscar-nav{
+    margin-top: 15px;
+    width: 97%;
+    padding-left: 35px;
 }
 
+.buscar-nav input{
+    margin-bottom: 20px;
+    width: 97%;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 17px;
+    color: var(--grey);
+    outline: none;
+    transition: all 0.6s ease;
+}
+
+
+
+/* Estilos de letras */
 .eslogan{
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .eslogan p{
@@ -193,6 +225,9 @@ body {
     font-size: 16px
 }
 
+
+
+/* Contacto*/
 .contacto-title p {
     padding: 0;
     margin-top: 0;
@@ -215,124 +250,199 @@ body {
     font-family: 'Work Sans', sans-serif;
     font-size: 25px;
 }
-@keyframes muestraMenu{
-    from{opacity: 0;}
-    to{opacity: 1;}
+
+/* Fomrulario */
+input, select {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 90%;
+    color: var(--darker-grey);
+    padding: 0.5rem 0.6rem;
+    border: 2px var(--light-grey) solid;
+    background: var(--white);
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--darker-grey);
+    transition: border 0.3s;
 }
-.enlaces-menu.activado{
+
+input:hover, input:focus, select:hover, select:focus {
+    border: 2px var(--grey) solid;
+    outline: none;
+}
+
+label {
     display: flex;
-    animation: muestraMenu 350ms ease-in-out 
-    both;
 }
 
-.br-1.animado{
-    transform: rotate(-45deg) translate(-10px, 8px); 
-    
+.encuesta-content {
+    padding: 0.25rem 0rem;
+    display: flex;
+    flex-direction: column;
+
 }
 
-.br-2.animado{
+.encuesta-label {
+    display: block;
+    padding-top: 0.8rem;
+    padding-bottom: 0.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.encuesta-field-invalid {
+    font-size: 0.9rem;
+    color: var(--main-darker);
+}
+
+.invisible {
+    display: none;
+}
+
+.btn-text {
+    display: flex;
+    margin: 1rem 0;
+    padding: 0.3rem 0;
+    color: var(--main);
+    font-size: 1rem;
+    font-weight: bold;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.btn-text:hover {
+    color: var(--main-darker);
+}
+
+.btn-filled {
+    border-radius: 1rem;
+    width: 90%;
+    margin: 0.3rem 0;
+    padding: 1rem 0.5rem;
+    color: var(--white);
+    background-color: var(--main);
+    font-size: 1.2rem;
+    font-weight: bold;
+    --webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+
+.btn-filled:hover, .btn-filled:focus {
+    background-color: var(--main-darker);
+}
+
+.btn-filled-green:hover, .btn-filled-green:focus {
+    background-color: var(--darker-green);
+}
+
+.btn-filled-blue {
+    background-color: var(--green);
+}
+
+.btn-filled-green {
+    width: 100%;
+    margin: 0.3rem 0;
+    padding: 1rem 0.5rem;
+    color: var(--white);
+    background-color: var(--green);
+    font-size: 1.2rem;
+    font-weight: bold;
+    --webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.btn-filled-blue:hover, .btn-filled-blue:focus {
+    background-color: var(--darker-green);
+}
+
+section {
+    width: 100%;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mail event*/
+#eventSendMail{
     opacity: 0;
 }
 
-.br-3.animado{
-    transform: rotate(45deg) translate(-10px,-8px);
-    ;
-}
+/* Desktop */
+@media only screen and (min-width: 1080px) {
+    body {
+        background: url('/img/healthy-lunch-go-packed-lunch-box.jpg') no-repeat center fixed;
+        background-size: cover;
+    }
 
-.footer {
-    margin-top: 6rem;
-    padding: 1rem 0;
-    background-color: var(--backgorund-footer);
-    color: var(--white);
-    text-align: center;
-}
-/*DISPOSITIVOS MOVILES*/
+    .container-body {
+        margin-left: 10rem;
+    }
 
-@media (max-width:768px) {
-    body{
-        
-        background: var(--background-mobile) ;
+    .nav-toggle{
+        display: none;
+    }
+
+    .nav-header{
+        display: block;
+    }
+
+    .flex-nav{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items:center ;
+        padding: 0 40px;
+    }
+
+    .nav-links {
+        height: auto;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        border-bottom: none;
+    }
+
+    .nav-link-buscar{
+        margin-right: 100px;
+        display: inline-block;
+        border-bottom: none;
+    }
+
+    .nav-links li:hover{
+        border-radius: 1rem;
+        background-color: var(--darker-green);
+        list-style-type: none;
+        transition: 0.3s;
+    }
+    input, select {
+        width: 50%;
+    }
+
+    .buscar-nav{
+        margin-top: 15px;
+        width: 30%;
     }
     
-    .container-body {
-        min-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 2rem;
-        margin-top: 4rem;
-    }
-
-    .boton-hum{
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 25px;
-        transition: 0.2s 0.1s;
-    }
-
-    .boton-hum:hover{
-        transform: rotate(360deg);
-    }
-    .navbar-conteiner{
-        flex-direction: column;
-        align-items: flex-start;
-        padding:25px 0;
-    }
-
-    .enlaces-menu{
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 92vh;
-        margin: 0;
-        pad: 0;
+    .buscar-nav input{
+        margin-bottom: 20px;
         width: 100%;
-        display: none;
-        opacity: 0;
+        
+    }
+    .btn-filled {
+        width: 25%;
     }
 
-    .enlaces-menu li{
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-    }
-}
-
-@media (min-width: 1024px) {
-
-    .container {
-        width: 1024px;
-    }
-
-    .container-body {
-        min-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 18rem;
-        margin-top: 4rem;
-    }
-}
-
-@media (min-width: 1280px) {
-
-    .container {
-        min-width: 1280px;
-    }
-
-}
-
-@media (min-width: 1536px) {
-    .container {
-        min-width: 1536px;
-    }
-
-}
-
-@media (min-width: 2000px) {
-    .container {
-        min-width: 2000px;
-    }
+    #mapid { height: 180px;width: 700px ;}
 
 }
