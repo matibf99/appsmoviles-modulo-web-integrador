@@ -67,6 +67,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    overflow-x: hidden;
 }
 
 /*
@@ -169,6 +170,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 2rem;
 }
 
 .nav-toggle {
@@ -212,7 +214,7 @@ a {
 }
 
 .buscar-nav {
-    margin-top: 15px;
+    margin: 1.25rem 0;
     width: 97%;
     padding-left: 35px;
 }
@@ -1316,7 +1318,6 @@ button {
     }
 
     .buscar-nav input {
-        margin-bottom: 20px;
         width: 100%;
     }
 
