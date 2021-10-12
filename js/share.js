@@ -1,5 +1,12 @@
 
+/* URL value */
+const urlParams = new URLSearchParams(window.location.search);
+const recipeId = urlParams.get("id"); 
+const host = window.location.protocol + "//" + window.location.host;
+const urlShare = `${host}/html/recipe.html?id=${recipeId}`
 
+
+document.getElementById("hello-menssage").value = "Hello dear friend I want you to take a look at this food!!" + "  " + urlShare + "                        " ;
 
 
 /* Validation functions */
@@ -38,9 +45,8 @@ const invalidEmail = document.getElementById("invalid-mail");
 
 email.addEventListener("input", checkEmail);
 
-
-
 /* Formulario */
+
 const $form = document.querySelector('#share-form');
 const $buttonMailto = document.querySelector('#eventSendMail');
 
