@@ -1,7 +1,6 @@
-$('#mail-receiving').on('input',function(e){
-    $('#share-form').attr("action",`mailto:${$(e.target).val()}`)
-    console.log("hola")
-});
+
+
+
 
 /* Validation functions */
 
@@ -32,9 +31,25 @@ const checkEmail = (e) =>  {
 
 /* Form fields*/
 
-const email = document.getElementById("mail");
+const email = document.getElementById("email");
 const invalidEmail = document.getElementById("invalid-mail");
 
 /* Add validations to fields */
 
+email.addEventListener("input", checkEmail);
 
+
+
+/* Formulario */
+const $form = document.querySelector('#share-form');
+const $buttonMailto = document.querySelector('#eventSendMail');
+
+$form.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+    event.preventDefault()
+    const form = new FormData(this);
+    console.log(form.get('email'))
+    $buttonMailto.setAttribute('href',`mailto:${form.get('email')}?subject=${form.get('email')}&body=${form.get('hello-message')}${form.get('comentario')}`)
+    $buttonMailto.click()
+}
