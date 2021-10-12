@@ -826,6 +826,7 @@ input[type="checkbox"] {
 }
 
 .cart-product {
+    position: relative;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     padding: 0.8rem 0;
@@ -834,6 +835,26 @@ input[type="checkbox"] {
     border-left: var(--darker-blue) 0.35rem solid;
     align-items: center;
     text-align: center;
+}
+
+.cart-product-delete {
+    cursor: pointer;
+    position: absolute;
+    top: 0.15rem;
+    right: 0.15rem;
+    padding: 0.1rem 0.3rem;
+    background-color: var(--main);
+    color: var(--white);
+    font-size: 0.8rem;
+    line-height: 1rem;
+    font-weight: normal;
+    transition: background-color 0.5s;
+    outline: none;
+    border: none;
+}
+
+.cart-product-delete:hover {
+    background-color: var(--main-darker);
 }
 
 .cart-product-details {
@@ -1104,6 +1125,11 @@ input[type="checkbox"] {
         font-size: 1.2rem;
         font-weight: bold;
         text-transform: uppercase;
+    }
+
+    .cart-product-delete {
+        top: 0.35rem;
+        right: 0.35rem;
     }
 }
 

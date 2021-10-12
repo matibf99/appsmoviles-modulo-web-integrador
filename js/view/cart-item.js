@@ -1,6 +1,9 @@
 const getView = (recipeId, image, title, cuisine, quantity, price) => {
     const html = /*html*/`
     <article class="cart-product" recipe-id="${recipeId}">
+        <button class="cart-product-delete">
+            x
+        </button>
         <div class="cart-product-details">
             <img src="${image}" alt="" class="cart-product-details-img">
             <div class="cart-product-details-text">

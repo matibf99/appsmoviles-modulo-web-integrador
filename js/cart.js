@@ -1,4 +1,4 @@
-import { getCart, getRecipeTotalPrice, getTotalPrice, setRecipeQuantityInCart } from "./utils/storage-cart.js";
+import { getCart, getRecipeTotalPrice, getTotalPrice, removeRecipeFromCart, setRecipeQuantityInCart } from "./utils/storage-cart.js";
 import { renderCartItems } from "./view/cart-item.js";
 
 /* Functions */
@@ -22,6 +22,7 @@ const initCartButtons = () => {
 
     const btnsMinus = $(".btn-cart-minus");
     const btnsPlus = $(".btn-cart-plus");
+    const btnsDelete = $(".cart-product-delete");
 
     btnsMinus.on("click", (e) => {
         const element = $(e.target).closest(".cart-product");
@@ -36,6 +37,15 @@ const initCartButtons = () => {
 
         refreshTotal();
     });
+
+    btnsDelete.on("click", (e) => {
+        const element = $(e.target).closest(".cart-product");
+
+        const recipeId = element.attr("recipe-id");
+        removeRecipeFromCart(recipeId);
+
+        element.remove();
+    })
 }
 
 const refreshTotal = () => {
