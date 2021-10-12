@@ -37,19 +37,18 @@ a {
     cursor: pointer;
 }
 
-#mapid { height: 180px; }
-::-webkit-scrollbar {display: none;}
-
-#mapid { height: 180px; 
-        width: 420px ;
-        border-radius: 1rem;}
+#mapid {
+    height: 180px;
+    width: 420px ;
+    border-radius: 1rem;
+}
 
 html {
     font-size: 62.5%;
     box-sizing: border-box;
 }
 
-*,*::before, *::after{
+*,*::before, *::after {
     box-sizing: inherit;
 }
 
@@ -61,6 +60,13 @@ body {
     /*background: url('/img/healthy-lunch-go-packed-lunch-box.jpg') no-repeat center fixed;*/
     background-size: cover;
     /*background: var(--background-mobile) */
+}
+
+.body-background {
+    background-image: url('/img/healthy-lunch-go-packed-lunch-box.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 /*
@@ -87,9 +93,8 @@ a {
 }
 
 .logo {
-    width: 200px;
-    height: 85px;
-    padding-left: 2rem;
+    width: auto;
+    height: 5rem;
 }
 
 /* Barra buscar*/
@@ -177,6 +182,10 @@ a {
 .nav-links {
     height: 0;
     overflow: hidden;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: #f3f3f3;
 }
 
 .nav-open {
@@ -188,6 +197,8 @@ a {
     margin: 20px 0;
     border-bottom: 2px solid white;
     width: 8rem;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
 }
 
 .nav-link-buscar {
@@ -195,30 +206,34 @@ a {
     width: 8rem;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     border-bottom: transparent;
     transition: 0.3s;
 }
 
-.buscar-nav{
+.buscar-nav {
     margin-top: 15px;
     width: 97%;
     padding-left: 35px;
 }
 
 .buscar-nav input{
-    margin-bottom: 20px;
     width: 97%;
-    height: 40px;
+    height: 2.5rem;
     padding: 0 20px;
-    font-size: 17px;
+    font-size: 1rem;
     color: var(--grey);
     outline: none;
-    transition: all 0.6s ease;
+    border: none;
+    transition: all 0.3s;
+}
+
+.buscar-nav input:hover, .buscar-nav input:active, .buscar-nav input:focus {
+    outline: var(--light-grey) 2px solid;
 }
 
 /* Estilos de letras */
-.eslogan{
+.eslogan {
     margin-bottom: 1.5rem;
 }
 
@@ -1137,8 +1152,7 @@ button {
     .flex-nav{
         flex-direction: row;
         justify-content: space-between;
-        align-items:center ;
-        padding: 0 40px;
+        align-items:center;
     }
 
     .nav-links {
@@ -1261,12 +1275,39 @@ button {
     .nav-link {
         display: inline-block;
         border-bottom: none;
+        padding: 0.5rem 0;
     }
 
     .nav-link-buscar{
         margin-right: 100px;
         display: inline-block;
         border-bottom: none;
+    }
+
+    .nav-link:hover {
+        border-radius: 1rem;
+        background-color: var(--darker-blue);
+        list-style-type: none;
+        transition: 0.3s;
+    }
+
+    .buscar-nav {
+        margin-top: 15px;
+        width: 30%;
+    }
+
+    .buscar-nav input {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .btn-filled {
+        width: 25%;
+    }
+
+    #mapid {
+        height: 180px;
+        width: 700px;
     }
 
     .search-filters {
@@ -1319,36 +1360,6 @@ button {
 @media (min-width: 2000px) {
     .container {
         min-width: 2000px;
-    }
-
-    .nav-links li:hover{
-        border-radius: 1rem;
-        background-color: var(--darker-green);
-        list-style-type: none;
-        transition: 0.3s;
-    }
-
-    input, select {
-        width: 50%;
-    }
-
-    .buscar-nav {
-        margin-top: 15px;
-        width: 30%;
-    }
-
-    .buscar-nav input {
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .btn-filled {
-        width: 25%;
-    }
-
-    #mapid {
-        height: 180px;
-        width: 700px;
     }
 
     .search-content {
