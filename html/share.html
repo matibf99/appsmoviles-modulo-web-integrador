@@ -25,7 +25,6 @@
                 <a href="/html/index.html">
                     <img class="logo" src="/img/whitelogo.png" alt="logo">
                 </a>
-                
                 <button class="nav-toggle" id= "navToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -50,34 +49,28 @@
 
         </div>
         <!-- CONTENT-->
-        <div class="input-buscar-container">
-            <div class="eslogan">
-                <p>
-                    Your physical health
-                </p>
-                <p>
-                    starts with 
-                </p>
-                <p>
-                    what you eat.
-                </p>
-            </div>
-            <div class="frase">
-                <p>
-                    Take control of your goals. Record the 
-                </p>
-                <p>
-                    calories, and the breakdown of ingredients
-                </p>
-                <p>
-                    with MyProDiet.
-                </p>
-            </div>
-            <div class="buscar">
-                <input type="text" placeholder="buscar" required>
-                <div class="btn-buscar">
-                    <i class="fas fa-search icon"></i>
-                </div>
+        <div>
+            <div class="encuesta-content">
+                <form enctype="text/plain" action="mailto:chazita9@gmail.com" method="post" id="share-form">
+                
+                    <label for="nombre" class="encuesta-label">Title</label>
+                    <input type="text" id="nombre">
+                    
+                    <label for="mail-emisor" class="encuesta-label">Sender email</label>
+                    <input type="email" id="mail">
+                    <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format</label>
+
+                    <label for="mail-destino" class="encuesta-label">Receiving email</label>
+                    <input type="email" id="mail-receiving">
+                    <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format.</label>
+
+                    <label for="comentario" class="encuesta-label">Comment</label>
+                    <input type="text" id="comentario">
+
+                    <button class="btn-text" type="button"  id="btn-restablecer"></button>
+                    <button class="btn-filled" type="button" id="btn-cancelar">CANCEL</button>
+                    <button class="btn-filled btn-filled-blue" type="submit" id="button-send" >SEND</button>
+                </form>
             </div>
         </div>
     </div>
@@ -92,5 +85,6 @@
     </footer>
 
     <script src="/js/main.js"></script>
+    <script src="/js/share.js"></script>
 </body>
 </html>

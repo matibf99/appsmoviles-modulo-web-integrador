@@ -6,6 +6,11 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,25 +22,29 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
-        <nav class="navbar-conteiner">
-            <a href="/html/index.html">
-                <img class="logo" src="/img/whitelogo.png" alt="logo">
-            </a>
-            <ul class="enlaces-menu">
-                <li><a href="#">ACERCA DE</a></li>
-                <li><a href="#">CALORIAS</a></li>
-                <li><a href="#">DIETAS</a></li>
-                <li><a href="#">ALIMENTOS</a></li>
-            </ul>
-            <button class="boton-hum" type="button">
-                <span class="br-1"></span>
-                <span class="br-2"></span>
-                <span class="br-3"></span>
-            </button>
-        </nav>
-    </header>
-
+    <div class="navbar">
+        <div class="flex-nav">
+            <div class="nav-header">
+                <a href="/html/index.html">
+                    <img class="logo" src="/img/whitelogo.png" alt="logo">
+                </a>
+                <button class="nav-toggle" id= "navToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="buscar-nav">
+                <input type="text" placeholder="Search, food and more..." required>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <ul>
+                    <li class="nav-link"><a href="#">FOOD</a></li>
+                    <li class="nav-link"><a href="#">DIET</a></li>
+                    <li class="nav-link"><a href="/html/acercade.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
     <!-- BODY -->
     <div class="container container-body">
         <!-- ASIDE -->
@@ -43,31 +52,36 @@
 
         </div>
         <!-- CONTENT-->
-        <div>
+        <div class="contacto">
             <div class="contacto-title">
                 <p>
-                    Contáctanos
+                    Contact us
                 </p>
             </div>
             <div class="contacto-subtitle">
                 <p>
-                    Soporte técnico
+                    Technical support
                 </p>
             </div>
             <div class="frase">
                 <p>
-                    Las preguntas frecuentes suelen ser la manera más rápida de obtener respuestas a tus preguntas. 
+                    Frequently asked questions are usually the fastest way 
                 </p>
                 <p>
-                    Aprende a usar las funciones que ofrece ProDiet visitando nuestras Preguntas frecuentes.
+                    to get answers to your questions.
                 </p>
                 <p>
-                    Si tu respuesta no se encuentra disponible en nuestro artículos de ayuda.
+                    Learn how to use the features ProDiet offers by visiting our Frequently Asked Questions.                </p>
+                <p>
+                    If your answer is not available in our 
+                </p>
+                <p>
+                    help articles.
                 </p>
             </div>
             <div class="contacto-subtitle">
                 <p>
-                    Correo electrónico
+                    Contac email
                 </p>
             </div>
             <div class="frase">
@@ -77,7 +91,7 @@
             </div>
             <div class="contacto-subtitle">
                 <p>
-                    Número telefónico
+                    Phone number
                 </p>
             </div>
             <div class="frase">
@@ -87,29 +101,33 @@
             </div>
             <div class="contacto-subtitle">
                 <p>
-                    Opina y comparte tu historia
+                    Comment and share your story
                 </p>
             </div>
             <div class="frase">
                 <p>
-                    ¿Tienes alguna opinión o historia de éxito que compartir? ¡Nos encantaría escucharla! Ayuda a que 
+                    Do you have an opinion or success story to share? 
                 </p>
                 <p>
-                    ProDiet sea mejor para todos.
+                    We would love to hear it! Help that
+                </p>
+                <p>
+                    ProDiet is better for everyone.
                 </p>
             </div>
             <div class="contacto-ubicacion">
                 <p>
-                    Ubicación
+                    Location
                 </p>
             </div>
-            <div id="mapid" ></div>
+            <div id="mapid"></div>
         </div>
+        
     </div>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
+        <div class="container-footer">
             <p>Matías Gabriel Busum Fradera, Facundo Ariel Chazarreta.</p>
             <p>UNAJ. Aplicaciones móviles 2C 2021.</p>
             <p>GM © 2021 GamesMaster. Todos los derechos reservados.</p>
