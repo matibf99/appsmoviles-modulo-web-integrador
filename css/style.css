@@ -267,6 +267,25 @@ a {
 }
 
 /* Fomulario */
+
+.encuesta-content input {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 90%;
+    color: var(--darker-grey);
+    padding: 0.5rem 0.6rem;
+    border: 2px var(--light-grey) solid;
+    background: var(--white);
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--darker-grey);
+    transition: border 0.3s;
+}
+.encuesta-content input:hover, .encuesta-content input:focus {
+    border: 2px var(--grey) solid;
+    outline: none;
+}
 /*
 input, select {
     display: inline-block;
