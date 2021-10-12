@@ -33,7 +33,7 @@ const setRecipeQuantityInCart = (quantity, recipeId) => {
     if (recipeExists != null)
         recipeExists.quantity = parseInt(quantity);
 
-    localStorage.setItem(CART_KEY, json.stringify(list));
+    localStorage.setItem(CART_KEY, JSON.stringify(list));
 }
 
 const removeRecipeQuantityFromCart = (quantity, recipeId) => {
@@ -67,4 +67,33 @@ const clearRecipesFromCart = () => {
     localStorage.removeItem(CART_KEY);
 }
 
-export { getCart, addRecipeToCart, setRecipeQuantityInCart, removeRecipeQuantityFromCart, removeRecipeFromCart, clearRecipesFromCart }
+const getRecipeTotalPrice = (recipeId) => {
+    const list = getCart();
+
+    if (!Array.isArray(list))
+        return 0;
+
+    const recipeExists = list.find(e => e.recipeId == recipeId);
+    if (recipeExists != null)
+        return recipeExists.price * recipeExists.quantity;
+
+    return 0;
+}
+
+const getTotalPrice = () => {
+    const list = getCart();
+
+    if (!Array.isArray(list))
+        return 0;
+
+    let totalPrice = 0;
+    list.forEach(element => {
+        totalPrice += element.price * element.quantity;
+    });
+
+    return totalPrice;
+}
+
+export { getCart, addRecipeToCart, setRecipeQuantityInCart,
+    removeRecipeQuantityFromCart, removeRecipeFromCart, clearRecipesFromCart,
+    getRecipeTotalPrice, getTotalPrice }

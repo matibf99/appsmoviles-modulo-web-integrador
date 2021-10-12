@@ -183,9 +183,7 @@ const initCartButtons = () => {
             image: image,
             price: price
         };
-
-        console.log(recipe);
-
+        
         addRecipeToCart(quantity, recipe);
         console.log(getCart());
     });

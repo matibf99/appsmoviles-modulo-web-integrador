@@ -797,7 +797,7 @@ input[type="checkbox"] {
 }
 
 .container-cart {
-    min-height: 90vh;
+    min-height: 80vh;
     padding: 2rem 0;
 }
 
@@ -876,6 +876,11 @@ input[type="checkbox"] {
     font-weight: bold;
     line-height: 1.4rem;
     color: var(--black);
+    transition: color 0.3s;
+}
+
+.cart-product-details-title:hover {
+    text-decoration: underline;
 }
 
 .cart-product-quantity {
@@ -914,7 +919,7 @@ input[type="checkbox"] {
     display: none;
 }
 
-.cart-product > p {
+.cart-product-total-price, .cart-product-price, .cart-product-total {
     font-size: 1rem;
     font-weight: bold;
     color: var(--black);
@@ -923,6 +928,37 @@ input[type="checkbox"] {
 .text-center {
     text-align: center;
 }
+
+.cart-total {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cart-total-container {
+    flex-grow: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    background-color: var(--white);
+}
+
+.cart-total-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cart-total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--black);
+}
+
 
 /*DISPOSITIVOS MOVILES */
 
@@ -1039,7 +1075,7 @@ input[type="checkbox"] {
     }
 
     .cart-product-details-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .cart-text-quantity {
@@ -1054,8 +1090,20 @@ input[type="checkbox"] {
         display: block;
     }
 
-    .cart-product > p {
+    .cart-product-total-price, .cart-product-price, .cart-product-total {
         font-size: 1.5rem;
+    }
+
+    .cart-total {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        border-radius: 0.2rem;
+    }
+
+    .cart-total-label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 }
 
