@@ -59,3 +59,9 @@ function handleSubmit(event) {
     $buttonMailto.setAttribute('href',`mailto:${form.get('email')}?subject=${form.get('email')}&body=${form.get('hello-message')}${form.get('comentario')}`)
     $buttonMailto.click()
 }
+
+// Cancelar
+const btnPaginaAnterior = document.getElementById("btn-cancelar");
+btnPaginaAnterior.addEventListener('click', () => {
+    window.history.back();
+});
