@@ -19,5 +19,4 @@ var myIcon = L.icon({
     popupAnchor: [-3, -76],
 });
 
-L.marker([-34.9225759, -57.9554079], {icon: myIcon}).addTo(mymap).bindPopup('ProDiet');
-.openPopup();
+L.marker([-34.9225759, -57.9554079], {icon: myIcon}).addTo(mymap).bindPopup('ProDiet').openPopup();
