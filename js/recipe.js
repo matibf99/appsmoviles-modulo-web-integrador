@@ -1,6 +1,7 @@
 import { RequestRecipeInfo } from "./requests/request-recipe-info.js";
 import { renderRecipe } from "./view/recipe-view.js";
 import { addRecipeToCart, getCart } from "./utils/storage-cart.js";
+import { addRecipeToHistory, getHistory } from "./utils/storage-history.js";
 
 /* Functions */
 
@@ -10,6 +11,10 @@ const loadRecipe = async (recipeId) => {
     const html = renderRecipe(response.recipe);
     containerRecipe.empty();
     containerRecipe.append(html);
+
+    let recipe = response.recipe;
+    recipe.recipeId = recipeId;
+    addRecipeToHistory(recipe);
 }
 
 const initCartButtons = () => {
