@@ -8,6 +8,7 @@ const urlShare = `${host}/html/recipe.html?id=${recipeId}`
 
 document.getElementById("hello-menssage").value = "Hello dear friend I want you to take a look at this food!!" + "  " + urlShare + "                        " ;
 
+document.getElementById('hello-menssage').readOnly = true;
 
 /* Validation functions */
 
