@@ -12,8 +12,7 @@ const loadRecipe = async (recipeId) => {
     containerRecipe.empty();
     containerRecipe.append(html);
 
-    let recipe = response.recipe;
-    recipe.recipeId = recipeId;
+    let recipe = response;
     addRecipeToHistory(recipe);
 }
 

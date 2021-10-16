@@ -154,7 +154,6 @@ body {
 }
 
 .footer {
-    margin-top: 6rem;
     padding: 1rem 0;
     background-color: var(--backgorund-footer);
     color: var(--white);
@@ -260,10 +259,23 @@ body {
 }
 
 .container-index-history {
-    padding: 2rem 0;
+    padding: 2rem;
+}
+
+.history-content {
+    padding: 1rem 0;
+    height: max-content;
+    width: auto;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 /* Contacto*/
+.contacto {
+    padding: 2rem 0;
+}
+
 .contacto-title p {
     padding: 0;
     margin-top: 0;
@@ -1190,6 +1202,10 @@ button {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .history-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .cart-product-details-img {
         display: block;
     }
@@ -1206,6 +1222,10 @@ button {
         padding: 0;
         margin-left: 1rem;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .history-content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .search-filters {
@@ -1301,6 +1321,10 @@ button {
         width: 60%;
     }
 
+    .container-index-history {
+        padding: 3rem 0;
+    }
+
     .nav-link {
         display: inline-block;
         border-bottom: none;
@@ -1346,6 +1370,10 @@ button {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .history-content {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
     .recipe-ingredient-img {
         display: block;
     }
@@ -1369,6 +1397,10 @@ button {
     .search-content {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    .history-content {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 }
 
 @media (min-width: 1536px) {
@@ -1378,6 +1410,10 @@ button {
 
     .search-content {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .history-content {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     .container-recipe-data {
@@ -1392,5 +1428,9 @@ button {
 
     .search-content {
         grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .history-content {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 }
