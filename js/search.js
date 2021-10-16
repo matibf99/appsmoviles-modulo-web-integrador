@@ -101,7 +101,12 @@ const loadResults = async () => {
     history.pushState(null, null, refresh_url);
 
     const response = await request.get();
-    nextPage = response._links.next.href;
+
+    try {
+        nextPage = response._links.next.href;
+    } catch (error) {
+        nextPage = null;
+    }
 
     searchQuery.text(`"${urlParams.get("q")}"`);
     searchNumResults.text(`${response.count} results`)
@@ -129,7 +134,12 @@ const loadMore = async () => {
         .setCont(urlParams.get("_cont"));
 
     const response = await res.get();
-    nextPage = response._links.next.href;
+
+    try {
+        nextPage = response._links.next.href;
+    } catch (error) {
+        nextPage = null;
+    }
 
     const views = getViews(response.hits);
 
@@ -196,8 +206,8 @@ const ingredientsMin = $("#ingr-min");
 const ingredientsMax = $("#ingr-max");
 
 // Calories
-const caloriesMin = $("#min-calories");
-const caloriesMax = $("#max-calories");
+const caloriesMin = $("#cal-min");
+const caloriesMax = $("#cal-max");
 
 // Diet
 const dietFilters = $("#diet").find("input");
@@ -250,9 +260,7 @@ await loadResults();
 
 $(window).on("scroll", async () => {
     if(!loading && $(window).scrollTop() >= searchContent.offset().top + searchContent.outerHeight() - window.innerHeight) {
-        console.log('end reached');
-
-        if (nextPage != null || nextPage.length > 0) {
+        if (nextPage != null && nextPage.length > 0) {
             await loadMore();
         }
     }
