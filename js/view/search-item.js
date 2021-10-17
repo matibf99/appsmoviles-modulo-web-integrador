@@ -1,20 +1,5 @@
 import { calculatePrice } from "../utils/recipe-utils.js";
-
-const arrayToString = (array) => {
-    let s = "";
-
-    for (let i = 0; i < array.length; i++) {
-        let cuisine = array[i];
-        cuisine = cuisine[0].toUpperCase() + cuisine.slice(1);
-
-        if (i < array.length-1)
-            s += `${cuisine}/`;
-        else
-            s += `${cuisine}`;
-    }
-
-    return s;
-}
+import { arrayToStringWithDash } from "../utils/array-to-string.js";
 
 const getView = (recipeId, image, title, cuisine, mealType, numIngredients, calories, totalTime) => {
     const html = /*html*/`
@@ -33,7 +18,7 @@ const getView = (recipeId, image, title, cuisine, mealType, numIngredients, calo
         <img src="${image}" alt="" class="card-recipe-image">
         <a href="/html/recipe.html?id=${recipeId}" class="card-recipe-link">
             <div class="card-recipe-text">
-                <h6 class="card-recipe-label">${arrayToString(cuisine)}</h6>
+                <h6 class="card-recipe-label">${arrayToStringWithDash(cuisine)}</h6>
                 <h2 class="card-recipe-title">${title}</h2>
                 <h6 class="card-recipe-subtitle">${mealType}</h6>
                 <div class="card-recipe-info">

@@ -1,44 +1,5 @@
 import { calculatePrice } from "../utils/recipe-utils.js";
-
-const arrayToString = (array) => {
-    let s = "";
-
-    for (let i = 0; i < array.length; i++) {
-        if (i < array.length-1)
-            s += `${array[i]}, `;
-        else
-            s += `${array[i]}`;
-    }
-
-    return s;
-}
-
-const arrayToStringWithDash = (array) => {
-    let s = "";
-
-    for (let i = 0; i < array.length; i++) {
-        let cuisine = array[i];
-        cuisine = cuisine[0].toUpperCase() + cuisine.slice(1);
-
-        if (i < array.length-1)
-            s += `${cuisine}/`;
-        else
-            s += `${cuisine}`;
-    }
-
-    return s;
-}
-
-
-const htmlArrayToString = (array) => {
-    let s = "";
-
-    for (let i = 0; i < array.length; i++) {
-        s += `${array[i]}`
-    }
-
-    return s;
-}
+import { arrayToString, arrayToStringWithDash, htmlArrayToString } from "../utils/array-to-string.js";
 
 const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIngredients, dishType,
     calories, dietLabels, healthLabels, cautions, ingredients, totalNutrients, totalNutrientsDaily) => {

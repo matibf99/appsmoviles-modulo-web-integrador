@@ -382,9 +382,9 @@ body {
 }
 
 .frase span {
-    
     font-size: 13px;
 }
+
 .frase i {
     font-size: 15px;
 }
@@ -393,7 +393,6 @@ body {
 
 .content-form  {
     min-height: 80vh;
-    max-width: 1170px;
     margin: 6rem 0 ;
     color: var(--black);
     font-family: "Inter", sans-serif;
