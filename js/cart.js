@@ -21,7 +21,6 @@ const loadProducts = () => {
         cartProducts.append(html);
     }
 
-    initCartButtons();
     refreshTotal();
 }
 
