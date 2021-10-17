@@ -52,36 +52,58 @@
     </header>
 
     <!-- BODY -->
-    <div class="container container-body">
-        <!-- ASIDE -->
-        <div>
-
-        </div>
+    <div class="container">
         <!-- CONTENT-->
-        <div>
-            <div class="encuesta-content">
-                <form enctype="text/plain" id="share-form" action="mailto:chazita9@gmail.com">
-                    <label for="nombre" class="encuesta-label">Hello message</label>
-                    <input type="text" id="hello-menssage" name="hello-message" value="" >
+        <div class="content-form">
+            <h1 class="logo-contact">Share <span>with</span> a <span>friend </span></h1>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <form enctype="text/plain" id="share-form" action="mailto:chazita9@gmail.com">
+                        <p class="block">
+                            <label for="nombre" class="encuesta-label">Hello message</label>
+                            <input type="text" id="hello-menssage" name="hello-message" value="" >
+                        </p>
+                        <p class="block">
+                            <label for="mail-emisor" class="encuesta-label">Receiving email</label>
+                            <input type="email" id="email" name="email">
+                            <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format</label>
+                        </p>
+                        
+                        <p class="block">
+                            <label for="comentario" class="encuesta-label">Comment</label>
+                            <input type="text" id="comentario" name="comentario">       
+                        </p>
+                        <p>
+                            <button class="btn-filled" type="button" id="btn-cancelar">CANCEL</button>
+                        </p>
+                        <p>
+                            <button class="btn-filled btn-filled-blue" type="submit" id="button-send">SEND</button>
+                        </p>
+                        
+                    </form>
+                    <a href="mailto:chazita9@gmail.com" id="eventSendMail">mail</a>
+                </div>
 
-                    <label for="mail-emisor" class="encuesta-label">Receiving email</label>
-                    <input type="email" id="email" name="email">
-                    <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format</label>
-
-                    <label for="mail-destino" class="encuesta-label">Sender email</label>
-                    <input type="mail" id="mail-sender">
-                    <label for="nombre" class="encuesta-field-invalid invisible" id="invalid-mail">* The "email" field must not be empty and must have a suitable format.</label>
-
-                    <label for="comentario" class="encuesta-label">Comment</label>
-                    <input type="text" id="comentario" name="comentario">
-
-                    <button class="btn-text" type="button"  id="btn-restablecer"></button>
-                    <button class="btn-filled" type="button" id="btn-cancelar">CANCEL</button>
-                    <button class="btn-filled btn-filled-blue" type="submit" id="button-send" >SEND</button>
-                </form>
-                <a href="mailto:chazita9@gmail.com" id="eventSendMail">mail</a>
+                <div class="contact-info">
+                    <h4>More info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker"></i> Catedral de La Plata</li>
+                        <li><i class="fas fa-phone"></i> 4226-9065</li>
+                        <li><i class="fas fa-envelope-open-text"></i> ProDiet@gmail.com.ar</li>
+                    </ul>
+                    <p>
+                        At ProDiet.com, we focus on making sure you register your 
+                        meals as quickly and easily as possible. Because the easier it 
+                        is for you, the more likely you are to stay on track and be successful in 
+                        your weight loss goals.
+                    </p>
+                    <p>
+                        ProDiet.com
+                    </p>
+                </div>
             </div>
         </div>
+        
     </div>
 
     <!-- FOOTER -->
