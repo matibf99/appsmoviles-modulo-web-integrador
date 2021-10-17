@@ -14,6 +14,8 @@ const loadProducts = () => {
         views.forEach(element => {
             cartProducts.append(element);
         });
+
+        initCartButtons();
     } else {
         const html = renderCartEmpty();
         cartProducts.append(html);
@@ -92,4 +94,3 @@ btnEmpty.on("click", (e) => {
 /* Load products */
 
 loadProducts();
-initCartButtons();

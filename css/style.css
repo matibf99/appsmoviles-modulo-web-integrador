@@ -1244,6 +1244,22 @@ button {
     display: none;
 }
 
+.alert {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    padding: 1rem 2rem;
+    background-color: var(--blue-light);
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--white);
+    border-radius: 0.2rem;
+    border-left: var(--darker-blue) 8px solid;
+}
+
 @media (min-width: 512px) {
     .container-index-text * {
         width: 60%;
@@ -1263,6 +1279,10 @@ button {
 }
 
 @media (min-width: 768px) {
+    .container {
+        width: 738px;
+    }
+
     .nav-toggle {
         display: none;
     }
@@ -1358,7 +1378,7 @@ button {
     }
 
     .container-recipe {
-        padding: 2rem;
+        padding: 2rem 0;
         flex-direction: row;
     }
 
@@ -1406,6 +1426,12 @@ button {
     .cart-product-delete {
         top: 0.35rem;
         right: 0.35rem;
+    }
+
+    .alert {
+        left: 25%;
+        right: 25%;
+        width: 50%;
     }
 }
 
