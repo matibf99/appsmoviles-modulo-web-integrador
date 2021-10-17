@@ -4,9 +4,10 @@ const urlParams = new URLSearchParams(window.location.search);
 const recipeId = urlParams.get("id"); 
 const host = window.location.protocol + "//" + window.location.host;
 const urlShare = `${host}/html/recipe.html?id=${recipeId}`
+const title = urlParams.get("title");
 
 
-document.getElementById("hello-menssage").value = "Hello dear friend I want you to take a look at this food!!" + "  " + urlShare + "                        " ;
+document.getElementById("hello-menssage").value = `Hi friend! I want to share this with you: \n${title} - ${urlShare}`;
 
 document.getElementById('hello-menssage').readOnly = true;
 
@@ -57,7 +58,10 @@ function handleSubmit(event) {
     event.preventDefault()
     const form = new FormData(this);
     console.log(form.get('email'))
-    $buttonMailto.setAttribute('href',`mailto:${form.get('email')}?subject=${form.get('email')}&body=${form.get('hello-message')}${form.get('comentario')}`)
+
+    const subject = `${title} - Prodiet`;
+    const text = `${form.get('comentario')} - ${form.get('hello-message')}`;
+    $buttonMailto.setAttribute('href',`mailto:${form.get('email')}?subject=${subject}&body=${text}`);
     $buttonMailto.click()
 }
 

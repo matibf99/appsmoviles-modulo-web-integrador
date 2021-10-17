@@ -38,12 +38,12 @@ class RequestRecipeSearch {
     }
 
     setNumberIngredients(min, max) {
-        if(min == null || min == 0 && max == null || max == 0)
+        if((min == null || min == 0) && (max == null || max == 0))
             this.ingr = null;
         else if (min == null || min == 0)
             this.ingr = `${max}`;
         else if (max == null || max == 0)
-            this.ingr = `${min}%2B`;
+            this.ingr = `${min}+`;
         else
             this.ingr = `${min}-${max}`;
 
@@ -81,7 +81,7 @@ class RequestRecipeSearch {
         else if (min == null || min == 0)
             this.calories = `${max}`;
         else if (max == null || max == 0)
-            this.calories = `${min}%2B`;
+            this.calories = `${min}+`;
         else
             this.calories = `${min}-${max}`;
 

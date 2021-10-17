@@ -13,6 +13,23 @@ const arrayToString = (array) => {
     return s;
 }
 
+const arrayToStringWithDash = (array) => {
+    let s = "";
+
+    for (let i = 0; i < array.length; i++) {
+        let cuisine = array[i];
+        cuisine = cuisine[0].toUpperCase() + cuisine.slice(1);
+
+        if (i < array.length-1)
+            s += `${cuisine}/`;
+        else
+            s += `${cuisine}`;
+    }
+
+    return s;
+}
+
+
 const htmlArrayToString = (array) => {
     let s = "";
 
@@ -41,7 +58,7 @@ const getView = (recipeId, image, title, cuisine, mealType, totalTime, numberIng
         </div>
         <img src="${image}" alt="" class="card-recipe-summary-img">
         <div class="card-recipe-summary-info">
-            <h3 class="card-recipe-summary-label">${cuisine}</h3>
+            <h3 class="card-recipe-summary-label">${arrayToStringWithDash(cuisine)}</h3>
             <h1 class="card-recipe-summary-title">${title}</h1>
             <h2 class="card-recipe-summary-price">$${calculatePrice(calories)}</h2>
         </div>
@@ -133,9 +150,7 @@ const renderRecipe = (recipe) => {
 
     const totalTime = recipe.totalTime;
 
-    let cuisine = recipe.cuisineType[0];
-    cuisine = cuisine[0].toUpperCase() + cuisine.slice(1);
-
+    let cuisine = recipe.cuisineType;
     let mealType = recipe.mealType;
 
     const calories = recipe.calories.toFixed(0);

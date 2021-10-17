@@ -71,6 +71,8 @@ const loadResults = async () => {
     if (ingredientsMax.val())
         newUrlParams.append("ingrMax", ingredientsMax.val());
 
+    console.log(`ingr min: ${ingredientsMin.val()}`)
+
     const request = new RequestRecipeSearch()
         .setQuery(urlParams.get("q"))
         .setNumberIngredients(ingredientsMin.val(), ingredientsMax.val())
