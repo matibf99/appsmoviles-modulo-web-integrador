@@ -15,9 +15,7 @@ El servidor se levantó utilizando la extensión *Live Server* de VS Code.
 
 ## API utilizada
 
-La API que se utilizó es [EDAMAN](https://www.edamam.com/).
-
-**Aclaración:** En la versión gratuita, sólo se permite un máximo de 10 consultas por minuto.
+La API que se utilizó es [EDAMAN](https://www.edamam.com/). (**Aclaración:** *En la versión gratuita, sólo se permite un máximo de 10 consultas por minuto.*)
 
 ## Materia
 
