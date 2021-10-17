@@ -6,17 +6,65 @@ import { getViews } from "./view/search-item.js"
 
 const loadHistory = () => {
     const recipes = getHistory();
-    console.log(recipes);
 
     if (recipes.length > 0) {
         const html = getViews(recipes);
         containerHistory.empty();
         containerHistory.append(html);
+
+        initCartButtons();
     } else {
         const html = renderHistoryEmpty();
         containerHistory.empty();
         containerHistory.append(html);
     }
+}
+
+const initCartButtons = () => {
+    const btnsMinus = $(".btn-cart-minus");
+    const btnsPlus = $(".btn-cart-plus");
+
+    const btnsAddToCart = $(".btn-cart");
+
+    btnsMinus.on("click", (e) => {
+        const quantityText = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity");
+
+        if (quantityText.text() > 1)
+            quantityText.text(parseInt(quantityText.text()) - 1);
+        else
+            quantityText.text(1);
+    });
+
+    btnsPlus.on("click", (e) => {
+        const quantityText = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity");
+        quantityText.text(parseInt(quantityText.text()) + 1);
+    });
+
+    btnsAddToCart.on("click", (e) => {
+        const quantity = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity").text();
+        if (quantity < 1)
+            quantity = 1;
+
+        const elemRecipe = $(e.target).closest(".card-recipe");
+
+        const recipeId = elemRecipe.attr("recipe-id");
+        const title = elemRecipe.find(".card-recipe-title").text();
+        const cuisine = elemRecipe.find(".card-recipe-label").text();
+        const mealType = elemRecipe.find(".card-recipe-subtitle").text();
+        const image = elemRecipe.find(".card-recipe-image").attr("src");
+        const price = parseFloat(elemRecipe.find(".card-recipe-price").text().replace("$", ""));
+
+        const recipe = {
+            recipeId: recipeId,
+            title: title,
+            cuisine: cuisine,
+            mealType: mealType,
+            image: image,
+            price: price
+        };
+
+        addRecipeToCart(quantity, recipe);
+    });
 }
 
 /* Variables */

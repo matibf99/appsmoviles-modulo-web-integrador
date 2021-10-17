@@ -176,6 +176,8 @@ const initCartButtons = () => {
 
         if (quantityText.text() > 1)
             quantityText.text(parseInt(quantityText.text()) - 1);
+        else
+            quantityText.text(1);
     });
 
     btnsPlus.on("click", (e) => {
@@ -185,6 +187,9 @@ const initCartButtons = () => {
 
     btnsAddToCart.on("click", (e) => {
         const quantity = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity").text();
+        if (quantity < 1)
+            quantity = 1;
+
         const elemRecipe = $(e.target).closest(".card-recipe");
 
         const recipeId = elemRecipe.attr("recipe-id");
