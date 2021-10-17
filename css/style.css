@@ -1254,11 +1254,10 @@ button {
     padding: 1rem 2rem;
     background-color: var(--blue-light);
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: normal;
     color: var(--white);
     border-radius: 0.2rem;
     border-left: var(--darker-blue) 8px solid;
-    box-shadow: 2px 2px 2px 2px rgba(2, 97, 160, 0.1);
 }
 
 @media (min-width: 512px) {
@@ -1280,6 +1279,10 @@ button {
 }
 
 @media (min-width: 768px) {
+    .container {
+        width: 738px;
+    }
+
     .nav-toggle {
         display: none;
     }
@@ -1375,7 +1378,7 @@ button {
     }
 
     .container-recipe {
-        padding: 2rem;
+        padding: 2rem 0;
         flex-direction: row;
     }
 

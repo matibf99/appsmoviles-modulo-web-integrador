@@ -212,7 +212,6 @@ const initCartButtons = () => {
         addRecipeToCart(quantity, recipe);
 
         const alertHtml = renderAlert(`${title} (${quantity}) was successfully added to your cart.`);
-
         $("body").append(alertHtml);
         const alert = $(".alert");
         alert.fadeIn(250);
@@ -222,7 +221,7 @@ const initCartButtons = () => {
 
             setTimeout(() => {
                 alert.remove();
-            }, 500);
+            }, 250);
         }, 1500);
     });
 }
