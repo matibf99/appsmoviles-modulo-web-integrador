@@ -1,7 +1,8 @@
 import { RequestRecipeSearch } from "./requests/request-recipe-search.js";
 import { getViews } from "./view/search-item.js";
-import { addRecipeToCart, getCart } from "./utils/storage-cart.js";
+import { addRecipeToCart } from "./utils/storage-cart.js";
 import { renderSearchEmpty } from "./view/search-empty.js";
+import { renderAlert } from "./view/alert-view.js";
 
 /* Variables */
 
@@ -209,7 +210,20 @@ const initCartButtons = () => {
         };
 
         addRecipeToCart(quantity, recipe);
-        console.log(getCart());
+
+        const alertHtml = renderAlert(`${title} (${quantity}) was successfully added to your cart.`);
+
+        $("body").append(alertHtml);
+        const alert = $(".alert");
+        alert.fadeIn(250);
+
+        setTimeout(() => {
+            alert.fadeOut(250);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 500);
+        }, 1500);
     });
 }
 

@@ -1,7 +1,8 @@
 import { RequestRecipeInfo } from "./requests/request-recipe-info.js";
 import { renderRecipe } from "./view/recipe-view.js";
-import { addRecipeToCart, getCart } from "./utils/storage-cart.js";
-import { addRecipeToHistory, getHistory } from "./utils/storage-history.js";
+import { addRecipeToCart } from "./utils/storage-cart.js";
+import { addRecipeToHistory } from "./utils/storage-history.js";
+import { renderAlert } from "./view/alert-view.js";
 
 /* Functions */
 
@@ -58,7 +59,20 @@ const initCartButtons = () => {
         console.log(recipe);
 
         addRecipeToCart(quantity, recipe);
-        console.log(getCart());
+
+        const alertHtml = renderAlert(`${title} (${quantity}) was successfully added to your cart.`);
+
+        $("body").append(alertHtml);
+        const alert = $(".alert");
+        alert.fadeIn(250);
+
+        setTimeout(() => {
+            alert.fadeOut(250);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 500);
+        }, 1500);
     });
 }
 

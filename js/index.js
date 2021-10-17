@@ -1,6 +1,8 @@
 import { clearHistory, getHistory } from "./utils/storage-history.js";
+import { addRecipeToCart } from "./utils/storage-cart.js";
 import { renderHistoryEmpty } from "./view/history-empty.js";
-import { getViews } from "./view/search-item.js"
+import { getViews } from "./view/search-item.js";
+import { renderAlert } from "./view/alert-view.js";
 
 /* Functions */
 
@@ -64,6 +66,20 @@ const initCartButtons = () => {
         };
 
         addRecipeToCart(quantity, recipe);
+
+        const alertHtml = renderAlert(`${title} (${quantity}) was successfully added to your cart.`);
+
+        $("body").append(alertHtml);
+        const alert = $(".alert");
+        alert.fadeIn(250);
+
+        setTimeout(() => {
+            alert.fadeOut(250);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 500);
+        }, 1500);
     });
 }
 

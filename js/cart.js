@@ -19,6 +19,7 @@ const loadProducts = () => {
         cartProducts.append(html);
     }
 
+    initCartButtons();
     refreshTotal();
 }
 
@@ -92,4 +93,3 @@ btnEmpty.on("click", (e) => {
 /* Load products */
 
 loadProducts();
-initCartButtons();
