@@ -1,6 +1,7 @@
 import { RequestRecipeSearch } from "./requests/request-recipe-search.js";
 import { getViews } from "./view/search-item.js";
 import { addRecipeToCart, getCart } from "./utils/storage-cart.js";
+import { renderSearchEmpty } from "./view/search-empty.js";
 
 /* Variables */
 
@@ -111,13 +112,21 @@ const loadResults = async () => {
     searchQuery.text(`"${urlParams.get("q")}"`);
     searchNumResults.text(`${response.count} results`)
 
-    const views = getViews(response.hits);
+    if (response.hits.length > 0) {
+        const views = getViews(response.hits);
 
-    views.forEach(element => {
-        searchContent.append(element);
-    });
+        searchContent.empty();
+        views.forEach(element => {
+            searchContent.append(element);
+        });
 
-    initCartButtons();
+        initCartButtons();
+    } else {
+        const html = renderSearchEmpty();
+
+        searchContent.empty();
+        searchContent.append(html);
+    }
 
     loading = false;
 }
