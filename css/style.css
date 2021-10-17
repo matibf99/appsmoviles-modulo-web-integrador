@@ -158,10 +158,11 @@ body {
 }
 
 .footer {
-    padding: 1rem 0;
+    padding: 2rem 1rem;
     background-color: var(--backgorund-footer);
     color: var(--white);
     text-align: center;
+    font-size: 1.1rem;
 }
 
 /* Navbar */
