@@ -87,7 +87,7 @@ const btnEmpty = $(".btn-empty-cart");
 btnEmpty.on("click", (e) => {
     clearRecipesFromCart();
     loadProducts();
-})
+});
 
 /* Load products */
 
