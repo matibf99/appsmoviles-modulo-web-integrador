@@ -128,7 +128,6 @@ class RequestRecipeSearch {
             params.append(FIELD_CALORIES, this.calories);
 
         let url = REQUEST_RECIPE_URL + params.toString();
-        console.log(url);
 
         const response = await fetch(url, {
             method: "GET",
@@ -141,7 +140,6 @@ class RequestRecipeSearch {
             cache: "default"
         });
 
-        console.log(response);
         return response.json();
     }
 }

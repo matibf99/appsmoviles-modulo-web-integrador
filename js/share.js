@@ -57,7 +57,6 @@ $form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
     event.preventDefault()
     const form = new FormData(this);
-    console.log(form.get('email'))
 
     const subject = `${title} - Prodiet`;
     const text = `${form.get('comentario')} - ${form.get('hello-message')}`;

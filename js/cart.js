@@ -25,8 +25,6 @@ const loadProducts = () => {
 }
 
 const initCartButtons = () => {
-    console.log("hi2");
-
     const btnsMinus = $(".btn-cart-minus");
     const btnsPlus = $(".btn-cart-plus");
     const btnsDelete = $(".cart-product-delete");

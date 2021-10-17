@@ -56,8 +56,6 @@ const initCartButtons = () => {
             price: price
         };
 
-        console.log(recipe);
-
         addRecipeToCart(quantity, recipe);
 
         const alertHtml = renderAlert(`${title} (${quantity}) was successfully added to your cart.`);
@@ -82,7 +80,6 @@ const containerRecipe = $(".container-recipe");
 /* Load recipe from query params */
 
 const urlParams = new URLSearchParams(window.location.search);
-console.log(urlParams.get("id"));
 await loadRecipe(urlParams.get("id"));
 
 initCartButtons();

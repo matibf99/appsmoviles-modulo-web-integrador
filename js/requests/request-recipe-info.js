@@ -23,7 +23,6 @@ class RequestRecipeInfo {
         params.append(FIELD_APP_KEY, APP_KEY_RECIPE);
 
         const url = RECIPE_INFO_URL + this.id + "/?" + params.toString();
-        console.log(url);
 
         const response = await fetch(url, {
             method: "GET",
@@ -36,7 +35,6 @@ class RequestRecipeInfo {
             cache: "default"
         });
 
-        console.log(response);
         return response.json();
     }
 }

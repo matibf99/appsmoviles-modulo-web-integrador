@@ -137,7 +137,6 @@ const loadMore = async () => {
 
     const paramsString = nextPage.substring(nextPage.indexOf("?")+1);
     const urlParams = new URLSearchParams(paramsString);
-    console.log(paramsString);
 
     const res = new RequestRecipeSearch()
         .setQuery(urlParams.get("q"))

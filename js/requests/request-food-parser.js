@@ -43,7 +43,6 @@ class RequestFoodParser {
             params.append(FIELD_CALORIES, this.calories);
 
         let url = FOOD_PARSER_URL + params.toString();
-        console.log(url);
 
         const response = await fetch(url, {
             method: "GET",
@@ -56,7 +55,6 @@ class RequestFoodParser {
             cache: "default"
         });
 
-        console.log(response);
         return response.json();
     }
 }
