@@ -304,7 +304,8 @@ body {
 
 /* Contacto*/
 .contacto {
-    padding: 4rem 2rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
 }
 
 .contacto-title p {
@@ -1275,6 +1276,10 @@ button {
 
     .hero-subtitle {
         font-size: 2rem;
+    }
+
+    .contacto {
+        padding: 4rem 0;
     }
 
     .container-search {
