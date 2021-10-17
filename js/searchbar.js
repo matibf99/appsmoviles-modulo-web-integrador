@@ -1,6 +1,7 @@
 const searchBar = $("#search-bar");
 const searchButton = $(".buscar-nav-btn");
 const searchNav = $(".buscar-nav");
+const navContent = $(".nav-content");
 
 const navToggle = $(".nav-toggle");
 const navLinks = $(".nav-links");
@@ -16,6 +17,5 @@ searchButton.on("click", (e) => {
 });
 
 navToggle.on("click", () => {
-    navLinks.toggle();
-    searchNav.toggle();
+    navContent.slideToggle();
 });

@@ -240,9 +240,10 @@ const filtersList = $(".search-filters-list");
 // Show more filters (mobile)
 const btnShowFilters = $("#show-more-filters");
 btnShowFilters.on("click", () => {
-    filtersList.toggle();
+    filtersList.slideToggle();
+    filtersList.toggleClass("visible");
 
-    if (filtersList.is(":visible")) {
+    if (filtersList.hasClass("visible")) {
         btnShowFilters.text("Hide filters");
     } else {
         btnShowFilters.text("Show filters");

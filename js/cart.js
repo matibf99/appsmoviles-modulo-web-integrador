@@ -1,4 +1,5 @@
 import { getCart, getRecipeTotalPrice, getTotalPrice, removeRecipeFromCart, setRecipeQuantityInCart } from "./utils/storage-cart.js";
+import { renderCartEmpty } from "./view/cart-empty.js";
 import { renderCartItems } from "./view/cart-item.js";
 
 /* Functions */
@@ -6,12 +7,16 @@ import { renderCartItems } from "./view/cart-item.js";
 const loadProducts = () => {
     const items = getCart();
 
-    if (items != null) {
+    cartProducts.empty();
+    if (items != null && items.length > 0) {
         const views = renderCartItems(items);
 
         views.forEach(element => {
             cartProducts.append(element);
         });
+    } else {
+        const html = renderCartEmpty();
+        cartProducts.append(html);
     }
 
     refreshTotal();
@@ -44,7 +49,7 @@ const initCartButtons = () => {
         const recipeId = element.attr("recipe-id");
         removeRecipeFromCart(recipeId);
 
-        element.remove();
+        loadProducts();
     })
 }
 
