@@ -262,11 +262,37 @@ body {
     font-size: 1.5rem;
 }
 
-.section-title {
+.section-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 0.4rem;
+}
+
+.section-title {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--black);
+}
+
+.btn-empty {
+    padding: 0.2rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    align-items: center;
+    height: max-content;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--main);
+}
+
+.btn-empty-cart {
+    margin-left: 0.8rem;
+}
+
+.btn-empty span {
+    padding-top: 0.2rem;
 }
 
 .container-index-history {
@@ -980,7 +1006,7 @@ input[type="checkbox"] {
 }
 
 .cart-title {
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
     font-size: 2rem;
     font-weight: bold;
     color: var(--black);
@@ -1276,6 +1302,11 @@ button {
 
     .hero-subtitle {
         font-size: 2rem;
+    }
+
+    .section-title-container {
+        flex-direction: row;
+        align-items: center;
     }
 
     .contacto {

@@ -1,4 +1,4 @@
-import { getCart, getRecipeTotalPrice, getTotalPrice, removeRecipeFromCart, setRecipeQuantityInCart } from "./utils/storage-cart.js";
+import { clearRecipesFromCart, getCart, getRecipeTotalPrice, getTotalPrice, removeRecipeFromCart, setRecipeQuantityInCart } from "./utils/storage-cart.js";
 import { renderCartEmpty } from "./view/cart-empty.js";
 import { renderCartItems } from "./view/cart-item.js";
 
@@ -82,6 +82,12 @@ const refreshProduct = (element, v) => {
 
 const cartProducts = $(".cart-products");
 const totalPrice = $(".cart-total-price");
+
+const btnEmpty = $(".btn-empty-cart");
+btnEmpty.on("click", (e) => {
+    clearRecipesFromCart();
+    loadProducts();
+})
 
 /* Load products */
 

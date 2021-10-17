@@ -1,4 +1,4 @@
-import { getHistory } from "./utils/storage-history.js";
+import { clearHistory, getHistory } from "./utils/storage-history.js";
 import { renderHistoryEmpty } from "./view/history-empty.js";
 import { getViews } from "./view/search-item.js"
 
@@ -22,6 +22,12 @@ const loadHistory = () => {
 /* Variables */
 
 const containerHistory = $(".history-content");
+
+const btnEmpty = $(".btn-empty-history");
+btnEmpty.on("click", (e) => {
+    clearHistory();
+    loadHistory();
+});
 
 /* Load history */
 
