@@ -38,9 +38,14 @@ a {
 }
 
 #mapid {
-    height: 180px;
-    width: 295px ;
-    border-radius: 1rem;
+    height: 30rem;
+    border-radius: 0.25rem;
+    border: var(--grey) 1px solid;
+    transition: border 0.3s;
+}
+
+#mapid:hover {
+    border: var(--darker-grey) 1px solid;
 }
 
 html {
@@ -67,7 +72,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    overflow-x: hidden;
     justify-content: center;
 }
 
@@ -79,6 +83,7 @@ body {
 
 .container-index {
     min-height: 80vh;
+    padding: 2rem;
 }
 
 .container-body {
@@ -89,7 +94,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    overflow-x: hidden;
     justify-content: center;
 }
 
@@ -164,7 +168,7 @@ body {
 .navbar{
     align-items: center;
     justify-content: space-around;
-    min-height: 8vh;
+    min-height: 3rem;
     background: var(--blue-light);
 }
 
@@ -244,11 +248,11 @@ body {
 /* Estilos de letras */
 .hero-title {
     font-family: 'Work Sans', sans-serif;
-    font-size: 3.5rem;
+    font-size: 2rem;
 }
 
 .hero-subtitle {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .section-title {
@@ -259,7 +263,7 @@ body {
 }
 
 .container-index-history {
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 .history-content {
@@ -273,7 +277,7 @@ body {
 
 /* Contacto*/
 .contacto {
-    padding: 2rem 0;
+    padding: 4rem 2rem;
 }
 
 .contacto-title p {
@@ -1180,40 +1184,14 @@ button {
 
 /* Mail event*/
 #eventSendMail{
-    opacity: 0;
-}
-
-/* Desktop */
-@media only screen and (min-width: 1080px) {
-    body {
-        /*background: url('/img/healthy-lunch-go-packed-lunch-box.jpg') no-repeat center fixed;*/
-        background-size: cover;
-    }
-
-    .nav-toggle {
-        display: none;
-    }
-
-    .nav-header {
-        display: block;
-    }
-
-    .flex-nav {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items:center;
-    }
-
-    .nav-links {
-        height: auto;
-    }
-
-    ul {
-        text-align: center;
-    }
+    display: none;
 }
 
 @media (min-width: 512px) {
+    .container-index-text * {
+        width: 60%;
+    }
+
     .search-content {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1228,6 +1206,15 @@ button {
 }
 
 @media (min-width: 768px) {
+    .hero-title {
+        font-family: 'Work Sans', sans-serif;
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 2rem;
+    }
+
     .container-search {
         min-height: 90vh;
         display: flex;
@@ -1325,16 +1312,34 @@ button {
 }
 
 @media (min-width: 1024px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-header {
+        display: block;
+    }
+
+    .flex-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items:center;
+    }
+
+    .nav-links {
+        height: auto;
+    }
+
+    ul {
+        text-align: center;
+    }
+
     .container {
         width: 1024px;
     }
 
     .container-index-text {
-        padding: 4rem 0;
-    }
-
-    .container-index-text * {
-        width: 60%;
+        padding: 4rem 2rem;
     }
 
     .container-index-history {
@@ -1374,8 +1379,7 @@ button {
     }
 
     #mapid {
-        height: 180px;
-        width: 700px;
+        width: 60%;
     }
 
     .search-filters {
