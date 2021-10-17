@@ -8,7 +8,7 @@ El servidor se levantó utilizando la extensión *Live Server* de VS Code.
 
 ## Organización de los directorios
 
-- En la carpeta *html* se encuentran los ficheros con extensión .html.
+- En la carpeta *html* se encuentran los ficheros con extensión *.html*.
 - En la carpeta *css* están almacenados los ficheros con extensión *.css*.
 - En la carpeta *img* están las imagenes que utilizamos para la totalidad de la página.
 - En la carpeta *js* sae ubican los ficheros de JavaScript.
