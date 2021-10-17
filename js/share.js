@@ -49,19 +49,23 @@ email.addEventListener("input", checkEmail);
 
 /* Formulario */
 
-const $form = document.querySelector('#share-form');
-const $buttonMailto = document.querySelector('#eventSendMail');
+const form = document.querySelector('#share-form');
+const buttonMailto = document.querySelector('#eventSendMail');
 
-$form.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
     event.preventDefault()
     const form = new FormData(this);
 
-    const subject = `${title} - Prodiet`;
-    const text = `${form.get('comentario')} - ${form.get('hello-message')}`;
-    $buttonMailto.setAttribute('href',`mailto:${form.get('email')}?subject=${subject}&body=${text}`);
-    $buttonMailto.click()
+    const isEmailValid = checkEmail();
+
+    if (isEmailValid) {
+        const subject = `${title} - Prodiet`;
+        const text = `${form.get('comentario')} - ${form.get('hello-message')}`;
+        buttonMailto.setAttribute('href',`mailto:${form.get('email')}?subject=${subject}&body=${text}`);
+        buttonMailto.click();
+    }
 }
 
 // Cancelar
