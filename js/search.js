@@ -71,8 +71,6 @@ const loadResults = async () => {
     if (ingredientsMax.val())
         newUrlParams.append("ingrMax", ingredientsMax.val());
 
-    console.log(`ingr min: ${ingredientsMin.val()}`)
-
     const request = new RequestRecipeSearch()
         .setQuery(urlParams.get("q"))
         .setNumberIngredients(ingredientsMin.val(), ingredientsMax.val())
@@ -174,6 +172,7 @@ const initCartButtons = () => {
 
     const btnsAddToCart = $(".btn-cart");
 
+    btnsMinus.unbind("click");
     btnsMinus.on("click", (e) => {
         const quantityText = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity");
 
@@ -183,11 +182,13 @@ const initCartButtons = () => {
             quantityText.text(1);
     });
 
+    btnsPlus.unbind("click");
     btnsPlus.on("click", (e) => {
         const quantityText = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity");
         quantityText.text(parseInt(quantityText.text()) + 1);
     });
 
+    btnsAddToCart.unbind("click");
     btnsAddToCart.on("click", (e) => {
         const quantity = $(e.target).closest(".card-recipe-cart").find(".card-recipe-cart-quantity").text();
         if (quantity < 1)
