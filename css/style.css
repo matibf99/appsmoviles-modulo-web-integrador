@@ -1004,7 +1004,7 @@ input[type="checkbox"] {
 }
 
 .recipe-ingredient-quantity {
-    width: 6rem;
+    width: 6.5rem;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
