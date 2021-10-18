@@ -7,7 +7,7 @@ const urlShare = `${host}/html/recipe.html?id=${recipeId}`
 const title = urlParams.get("title");
 
 
-document.getElementById("hello-menssage").value = `Hi friend! I want to share this with you: \n${title} - ${urlShare}`;
+document.getElementById("hello-menssage").value = `I want to share this with you: \n${title} - ${urlShare}`;
 
 document.getElementById('hello-menssage').readOnly = true;
 
